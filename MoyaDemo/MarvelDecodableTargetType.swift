@@ -9,6 +9,8 @@
 import Foundation
 import Moya
 
+// https://developer.marvel.com/docs
+
 protocol BaseResponse: Decodable {
     var code: Int { get }
     var status: String { get }
