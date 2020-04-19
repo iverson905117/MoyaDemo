@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		036E87A123887E876A441DD8 /* Pods_MoyaDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD81C8328C213D363BA6824B /* Pods_MoyaDemo.framework */; };
+		716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716608F6244C163300738ADB /* CustomMoyaProvider.swift */; };
 		E114F49B24481C770032A75F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49A24481C770032A75F /* AppDelegate.swift */; };
 		E114F49D24481C770032A75F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49C24481C770032A75F /* SceneDelegate.swift */; };
 		E114F49F24481C770032A75F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49E24481C770032A75F /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		19E58E0DD5DDA754AB53361C /* Pods-MoyaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo.debug.xcconfig"; path = "Target Support Files/Pods-MoyaDemo/Pods-MoyaDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		3F1CFA8806BD6582AF2ED19C /* Pods-MoyaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo.release.xcconfig"; path = "Target Support Files/Pods-MoyaDemo/Pods-MoyaDemo.release.xcconfig"; sourceTree = "<group>"; };
+		716608F6244C163300738ADB /* CustomMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoyaProvider.swift; sourceTree = "<group>"; };
 		DD81C8328C213D363BA6824B /* Pods_MoyaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E114F49724481C770032A75F /* MoyaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E114F49A24481C770032A75F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				E114F4A524481C7B0032A75F /* LaunchScreen.storyboard */,
 				E114F4A824481C7B0032A75F /* Info.plist */,
 				E114F4B424482D080032A75F /* APIManager.swift */,
+				716608F6244C163300738ADB /* CustomMoyaProvider.swift */,
 				E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */,
 				E114F4AE244824730032A75F /* Marvel.swift */,
 				E1F215112448338300F2CECD /* MarvelModel.swift */,
@@ -224,6 +227,7 @@
 				E114F49F24481C770032A75F /* ViewController.swift in Sources */,
 				E1F2151624485CE700F2CECD /* MarvelDecodableTargetType.swift in Sources */,
 				E1F215122448338300F2CECD /* MarvelModel.swift in Sources */,
+				716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */,
 				E114F49B24481C770032A75F /* AppDelegate.swift in Sources */,
 				E114F4AF244824730032A75F /* Marvel.swift in Sources */,
 				E114F4B3244829CF0032A75F /* String+md5.swift in Sources */,

@@ -21,7 +21,9 @@ class ViewController: UIViewController {
 //        queryMarvelComics()
 //        queryMarvelComicsWithRx()
         
-        queryMarvelByDecodableTargetType()
+//        queryMarvelByDecodableTargetType()
+        
+        queryMarvelByCustomProvider()
     }
 
     func queryMarvelComics() {
@@ -63,6 +65,18 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func queryMarvelByCustomProvider() {
+        let provider = CustomMoyaProvider()
+        let _ = provider.requestDecoded(MarvelApi.QueryComics()) { result in
+            switch result {
+            case .success(let model):
+                print(model)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
