@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		036E87A123887E876A441DD8 /* Pods_MoyaDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD81C8328C213D363BA6824B /* Pods_MoyaDemo.framework */; };
+		036E87A123887E876A441DD8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		3B6767AAD7CF96BE07454EAE /* Pods_MoyaDemo_mock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98719EB8C9839505B8A4704F /* Pods_MoyaDemo_mock.framework */; };
 		716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716608F6244C163300738ADB /* CustomMoyaProvider.swift */; };
 		E114F49B24481C770032A75F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49A24481C770032A75F /* AppDelegate.swift */; };
 		E114F49D24481C770032A75F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49C24481C770032A75F /* SceneDelegate.swift */; };
@@ -17,16 +18,36 @@
 		E114F4A724481C7B0032A75F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E114F4A524481C7B0032A75F /* LaunchScreen.storyboard */; };
 		E114F4AF244824730032A75F /* Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4AE244824730032A75F /* Marvel.swift */; };
 		E114F4B3244829CF0032A75F /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B2244829CF0032A75F /* String+md5.swift */; };
-		E114F4B524482D080032A75F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B424482D080032A75F /* APIManager.swift */; };
+		E114F4B524482D080032A75F /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B424482D080032A75F /* ConnectionService.swift */; };
+		E1751EB7250F172D00F08683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49E24481C770032A75F /* ViewController.swift */; };
+		E1751EB8250F172D00F08683 /* MarvelDecodableTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */; };
+		E1751EB9250F172D00F08683 /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelModel.swift */; };
+		E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716608F6244C163300738ADB /* CustomMoyaProvider.swift */; };
+		E1751EBB250F172D00F08683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49A24481C770032A75F /* AppDelegate.swift */; };
+		E1751EBC250F172D00F08683 /* Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4AE244824730032A75F /* Marvel.swift */; };
+		E1751EBD250F172D00F08683 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B2244829CF0032A75F /* String+md5.swift */; };
+		E1751EBE250F172D00F08683 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B424482D080032A75F /* ConnectionService.swift */; };
+		E1751EBF250F172D00F08683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49C24481C770032A75F /* SceneDelegate.swift */; };
+		E1751EC3250F172D00F08683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E114F4A524481C7B0032A75F /* LaunchScreen.storyboard */; };
+		E1751EC4250F172D00F08683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E114F4A324481C7B0032A75F /* Assets.xcassets */; };
+		E1751EC5250F172D00F08683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E114F4A024481C770032A75F /* Main.storyboard */; };
+		E1751ECE250F178A00F08683 /* MarvelModelFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECC250F178A00F08683 /* MarvelModelFailure.json */; };
+		E1751ECF250F178A00F08683 /* MarvelModelFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECC250F178A00F08683 /* MarvelModelFailure.json */; };
+		E1751ED0250F178A00F08683 /* MarvelModelSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */; };
+		E1751ED1250F178A00F08683 /* MarvelModelSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */; };
+		E1751ED3250F178F00F08683 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1751ED2250F178F00F08683 /* ReachabilityManager.swift */; };
+		E1751ED4250F178F00F08683 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1751ED2250F178F00F08683 /* ReachabilityManager.swift */; };
 		E1F215122448338300F2CECD /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelModel.swift */; };
 		E1F2151624485CE700F2CECD /* MarvelDecodableTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05F15ABBCAF2324B20EF8BD0 /* Pods-MoyaDemo_mock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo_mock.debug.xcconfig"; path = "Target Support Files/Pods-MoyaDemo_mock/Pods-MoyaDemo_mock.debug.xcconfig"; sourceTree = "<group>"; };
 		19E58E0DD5DDA754AB53361C /* Pods-MoyaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo.debug.xcconfig"; path = "Target Support Files/Pods-MoyaDemo/Pods-MoyaDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		3F1CFA8806BD6582AF2ED19C /* Pods-MoyaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo.release.xcconfig"; path = "Target Support Files/Pods-MoyaDemo/Pods-MoyaDemo.release.xcconfig"; sourceTree = "<group>"; };
 		716608F6244C163300738ADB /* CustomMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoyaProvider.swift; sourceTree = "<group>"; };
-		DD81C8328C213D363BA6824B /* Pods_MoyaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98719EB8C9839505B8A4704F /* Pods_MoyaDemo_mock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaDemo_mock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15E2FF81FEAA07E14E36C06 /* Pods-MoyaDemo_mock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo_mock.release.xcconfig"; path = "Target Support Files/Pods-MoyaDemo_mock/Pods-MoyaDemo_mock.release.xcconfig"; sourceTree = "<group>"; };
 		E114F49724481C770032A75F /* MoyaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E114F49A24481C770032A75F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E114F49C24481C770032A75F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +58,11 @@
 		E114F4A824481C7B0032A75F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E114F4AE244824730032A75F /* Marvel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel.swift; sourceTree = "<group>"; };
 		E114F4B2244829CF0032A75F /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
-		E114F4B424482D080032A75F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		E114F4B424482D080032A75F /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
+		E1751ECA250F172D00F08683 /* MoyaDemo_mock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaDemo_mock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1751ECC250F178A00F08683 /* MarvelModelFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelModelFailure.json; sourceTree = "<group>"; };
+		E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelModelSuccess.json; sourceTree = "<group>"; };
+		E1751ED2250F178F00F08683 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		E1F215112448338300F2CECD /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
 		E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDecodableTargetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,7 +72,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				036E87A123887E876A441DD8 /* Pods_MoyaDemo.framework in Frameworks */,
+				036E87A123887E876A441DD8 /* (null) in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1751EC0250F172D00F08683 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B6767AAD7CF96BE07454EAE /* Pods_MoyaDemo_mock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +90,7 @@
 		DEBFA5BB2C177623E780AF29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD81C8328C213D363BA6824B /* Pods_MoyaDemo.framework */,
+				98719EB8C9839505B8A4704F /* Pods_MoyaDemo_mock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -76,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E114F49724481C770032A75F /* MoyaDemo.app */,
+				E1751ECA250F172D00F08683 /* MoyaDemo_mock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,12 +124,15 @@
 				E114F4A324481C7B0032A75F /* Assets.xcassets */,
 				E114F4A524481C7B0032A75F /* LaunchScreen.storyboard */,
 				E114F4A824481C7B0032A75F /* Info.plist */,
-				E114F4B424482D080032A75F /* APIManager.swift */,
+				E1751ED2250F178F00F08683 /* ReachabilityManager.swift */,
+				E114F4B424482D080032A75F /* ConnectionService.swift */,
 				716608F6244C163300738ADB /* CustomMoyaProvider.swift */,
 				E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */,
 				E114F4AE244824730032A75F /* Marvel.swift */,
 				E1F215112448338300F2CECD /* MarvelModel.swift */,
 				E114F4B2244829CF0032A75F /* String+md5.swift */,
+				E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */,
+				E1751ECC250F178A00F08683 /* MarvelModelFailure.json */,
 			);
 			path = MoyaDemo;
 			sourceTree = "<group>";
@@ -105,6 +142,8 @@
 			children = (
 				19E58E0DD5DDA754AB53361C /* Pods-MoyaDemo.debug.xcconfig */,
 				3F1CFA8806BD6582AF2ED19C /* Pods-MoyaDemo.release.xcconfig */,
+				05F15ABBCAF2324B20EF8BD0 /* Pods-MoyaDemo_mock.debug.xcconfig */,
+				B15E2FF81FEAA07E14E36C06 /* Pods-MoyaDemo_mock.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -129,6 +168,25 @@
 			name = MoyaDemo;
 			productName = MoyaDemo;
 			productReference = E114F49724481C770032A75F /* MoyaDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1751EB4250F172D00F08683 /* MoyaDemo_mock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1751EC7250F172D00F08683 /* Build configuration list for PBXNativeTarget "MoyaDemo_mock" */;
+			buildPhases = (
+				E1751EB5250F172D00F08683 /* [CP] Check Pods Manifest.lock */,
+				E1751EB6250F172D00F08683 /* Sources */,
+				E1751EC0250F172D00F08683 /* Frameworks */,
+				E1751EC2250F172D00F08683 /* Resources */,
+				E1751EC6250F172D00F08683 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoyaDemo_mock;
+			productName = MoyaDemo;
+			productReference = E1751ECA250F172D00F08683 /* MoyaDemo_mock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -160,6 +218,7 @@
 			projectRoot = "";
 			targets = (
 				E114F49624481C770032A75F /* MoyaDemo */,
+				E1751EB4250F172D00F08683 /* MoyaDemo_mock */,
 			);
 		};
 /* End PBXProject section */
@@ -169,9 +228,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1751ED0250F178A00F08683 /* MarvelModelSuccess.json in Resources */,
 				E114F4A724481C7B0032A75F /* LaunchScreen.storyboard in Resources */,
 				E114F4A424481C7B0032A75F /* Assets.xcassets in Resources */,
 				E114F4A224481C770032A75F /* Main.storyboard in Resources */,
+				E1751ECE250F178A00F08683 /* MarvelModelFailure.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1751EC2250F172D00F08683 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1751ED1250F178A00F08683 /* MarvelModelSuccess.json in Resources */,
+				E1751EC3250F172D00F08683 /* LaunchScreen.storyboard in Resources */,
+				E1751EC4250F172D00F08683 /* Assets.xcassets in Resources */,
+				E1751EC5250F172D00F08683 /* Main.storyboard in Resources */,
+				E1751ECF250F178A00F08683 /* MarvelModelFailure.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +290,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E1751EB5250F172D00F08683 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoyaDemo_mock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1751EC6250F172D00F08683 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoyaDemo_mock/Pods-MoyaDemo_mock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoyaDemo_mock/Pods-MoyaDemo_mock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoyaDemo_mock/Pods-MoyaDemo_mock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -228,11 +340,29 @@
 				E1F2151624485CE700F2CECD /* MarvelDecodableTargetType.swift in Sources */,
 				E1F215122448338300F2CECD /* MarvelModel.swift in Sources */,
 				716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */,
+				E1751ED3250F178F00F08683 /* ReachabilityManager.swift in Sources */,
 				E114F49B24481C770032A75F /* AppDelegate.swift in Sources */,
 				E114F4AF244824730032A75F /* Marvel.swift in Sources */,
 				E114F4B3244829CF0032A75F /* String+md5.swift in Sources */,
-				E114F4B524482D080032A75F /* APIManager.swift in Sources */,
+				E114F4B524482D080032A75F /* ConnectionService.swift in Sources */,
 				E114F49D24481C770032A75F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1751EB6250F172D00F08683 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1751EB7250F172D00F08683 /* ViewController.swift in Sources */,
+				E1751EB8250F172D00F08683 /* MarvelDecodableTargetType.swift in Sources */,
+				E1751EB9250F172D00F08683 /* MarvelModel.swift in Sources */,
+				E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */,
+				E1751ED4250F178F00F08683 /* ReachabilityManager.swift in Sources */,
+				E1751EBB250F172D00F08683 /* AppDelegate.swift in Sources */,
+				E1751EBC250F172D00F08683 /* Marvel.swift in Sources */,
+				E1751EBD250F172D00F08683 /* String+md5.swift in Sources */,
+				E1751EBE250F172D00F08683 /* ConnectionService.swift in Sources */,
+				E1751EBF250F172D00F08683 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -362,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -410,6 +540,47 @@
 			};
 			name = Release;
 		};
+		E1751EC8250F172D00F08683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05F15ABBCAF2324B20EF8BD0 /* Pods-MoyaDemo_mock.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HZFSZV43UE;
+				GENERATE_PKGINFO_FILE = YES;
+				INFOPLIST_FILE = MoyaDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D MOCK";
+				PRODUCT_BUNDLE_IDENTIFIER = cpkang.MoyaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E1751EC9250F172D00F08683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B15E2FF81FEAA07E14E36C06 /* Pods-MoyaDemo_mock.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HZFSZV43UE;
+				GENERATE_PKGINFO_FILE = YES;
+				INFOPLIST_FILE = MoyaDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cpkang.MoyaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -427,6 +598,15 @@
 			buildConfigurations = (
 				E114F4AC24481C7B0032A75F /* Debug */,
 				E114F4AD24481C7B0032A75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1751EC7250F172D00F08683 /* Build configuration list for PBXNativeTarget "MoyaDemo_mock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1751EC8250F172D00F08683 /* Debug */,
+				E1751EC9250F172D00F08683 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

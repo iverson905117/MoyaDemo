@@ -17,13 +17,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+    }
+    
+    @IBAction func test(_ sender: Any) {
 //        queryMarvelComics()
 //        queryMarvelComicsWithRx()
-        
-//        queryMarvelByDecodableTargetType()
-        
-        queryMarvelByCustomProvider()
+//        queryMarvel_DecodableTargetType()
+//        queryMarvel_CustomProvider()
+        queryMarvel_CustomProvider_rx()
     }
 
     func queryMarvelComics() {
@@ -36,10 +37,10 @@ class ViewController: UIViewController {
                     let marvelModel = try JSONDecoder().decode(MarvelModel.self, from: response.data)
                     print(marvelModel)
                 } catch {
-                    print(error.localizedDescription)
+                    print(error)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -52,31 +53,40 @@ class ViewController: UIViewController {
             .subscribe(onSuccess: { MarvelModel in
                 print(MarvelModel)
             }, onError: { error in
-                print(error.localizedDescription)
+                print(error)
             })
             .disposed(by: disposeBag)
     }
     
-    func queryMarvelByDecodableTargetType() {
-        APIManager.shared.request(MarvelApi.QueryComics())
+    func queryMarvel_DecodableTargetType() {
+        ConnectionService.shared.request(MarvelApi.QueryComics())
             .subscribe(onSuccess: { marvelModel in
                 print(marvelModel)
             }, onError: { error in
-                print(error.localizedDescription)
+                print(error)
             })
             .disposed(by: disposeBag)
     }
     
-    func queryMarvelByCustomProvider() {
-        let provider = CustomMoyaProvider()
-        let _ = provider.requestDecoded(MarvelApi.QueryComics()) { result in
+    func queryMarvel_CustomProvider() {
+        ConnectionService.shared.requestDecoded(MarvelApi.QueryComics(), completion: { result in
             switch result {
             case .success(let model):
                 print(model)
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
             }
-        }
+        })
+    }
+    
+    func queryMarvel_CustomProvider_rx() {
+        ConnectionService.shared.rxRequestDecoded(MarvelApi.QueryComics())
+            .subscribe(onSuccess: { marvelModel in
+                print(marvelModel)
+            }, onError: { error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

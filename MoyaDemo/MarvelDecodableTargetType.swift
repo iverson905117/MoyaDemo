@@ -11,13 +11,34 @@ import Moya
 
 // https://developer.marvel.com/docs
 
+protocol APIRetryable {
+    var retryCount: Int { get }
+}
+
+protocol Mockable {
+    var isStubSuccess: Bool { get }
+    var successFile: String { get }
+    var failureFile: String { get }
+}
+extension Mockable {
+    var successMockData: Data {
+        let path = Bundle.main.path(forResource: successFile, ofType: "json")
+        return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
+    }
+    
+    var failureMockData: Data {
+        let path = Bundle.main.path(forResource: failureFile, ofType: "json")
+        return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
+    }
+}
+
 protocol BaseResponse: Decodable {
     var code: Int { get }
     var status: String { get }
     var copyright: String { get }
 }
 
-protocol DecodableTargetType: TargetType {
+protocol DecodableTargetType: TargetType, Mockable, APIRetryable {
     associatedtype ResponseType: BaseResponse
 }
 
@@ -34,10 +55,21 @@ extension MarvelDecodableTargetType {
 /// Marvel API TargetType enumeration
 enum MarvelApi {
     struct QueryComics: MarvelDecodableTargetType {
+        
         typealias ResponseType = MarvelModel
+        
         var path: String { return "/comics" }
+        
         var method: Moya.Method { return .get }
-        var sampleData: Data { return Data() }
+        
+        var sampleData: Data {
+            if isStubSuccess {
+                return successMockData
+            } else {
+                return failureMockData
+            }
+        }
+        
         var task: Task {
             let ts = "\(Date().timeIntervalSince1970)"
             let hash = "\(ts + privateKey + publicKey)".md5()
@@ -50,8 +82,25 @@ enum MarvelApi {
                 "limit": 50,
                 "apikey": Marvel.publicKey,
                 "ts": ts,
-                "hash": hash!],
+                "hash": hash!
+            ],
             encoding: URLEncoding.default)
         }
+        
+        // MARK: Mockable
+        var isStubSuccess: Bool {
+            return true
+        }
+        
+        var successFile: String {
+            return "MarvelModelSuccess"
+        }
+        
+        var failureFile: String {
+            return "MarvelModelFailure"
+        }
+        
+        // MARK: APIRetryable
+        var retryCount: Int = 5
     }
 }

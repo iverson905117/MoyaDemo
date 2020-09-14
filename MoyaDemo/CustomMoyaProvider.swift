@@ -26,8 +26,10 @@ class CustomMoyaProvider: MoyaProvider<MultiTarget> {
 
 extension CustomMoyaProvider {
     
-    func requestDecoded<T: DecodableTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable {
+    func requestDecoded<T: MarvelDecodableTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable {
+        
         let target = MultiTarget(target)
+        
         return request(target) { result in
             switch result {
             case .success(let response):
