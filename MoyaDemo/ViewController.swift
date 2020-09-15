@@ -23,8 +23,8 @@ class ViewController: UIViewController {
 //        queryMarvelComics()
 //        queryMarvelComicsWithRx()
 //        queryMarvel_DecodableTargetType()
-//        queryMarvel_CustomProvider()
-        queryMarvel_CustomProvider_rx()
+        queryMarvel_CustomProvider()
+//        queryMarvel_CustomProvider_rx()
     }
 
     func queryMarvelComics() {
@@ -37,10 +37,10 @@ class ViewController: UIViewController {
                     let marvelModel = try JSONDecoder().decode(MarvelModel.self, from: response.data)
                     print(marvelModel)
                 } catch {
-                    print(error)
+                    print(error.localizedDescription)
                 }
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
             .subscribe(onSuccess: { MarvelModel in
                 print(MarvelModel)
             }, onError: { error in
-                print(error)
+                print(error.localizedDescription)
             })
             .disposed(by: disposeBag)
     }
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
             .subscribe(onSuccess: { marvelModel in
                 print(marvelModel)
             }, onError: { error in
-                print(error)
+                print(error.localizedDescription)
             })
             .disposed(by: disposeBag)
     }
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
             case .success(let model):
                 print(model)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         })
     }
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
             .subscribe(onSuccess: { marvelModel in
                 print(marvelModel)
             }, onError: { error in
-                print(error)
+                print(error.localizedDescription)
             })
             .disposed(by: disposeBag)
     }

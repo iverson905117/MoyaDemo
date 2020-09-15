@@ -20,7 +20,7 @@
 		E114F4B3244829CF0032A75F /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B2244829CF0032A75F /* String+md5.swift */; };
 		E114F4B524482D080032A75F /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B424482D080032A75F /* ConnectionService.swift */; };
 		E1751EB7250F172D00F08683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49E24481C770032A75F /* ViewController.swift */; };
-		E1751EB8250F172D00F08683 /* MarvelDecodableTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */; };
+		E1751EB8250F172D00F08683 /* MarvelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelApi.swift */; };
 		E1751EB9250F172D00F08683 /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelModel.swift */; };
 		E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716608F6244C163300738ADB /* CustomMoyaProvider.swift */; };
 		E1751EBB250F172D00F08683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49A24481C770032A75F /* AppDelegate.swift */; };
@@ -37,8 +37,12 @@
 		E1751ED1250F178A00F08683 /* MarvelModelSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */; };
 		E1751ED3250F178F00F08683 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1751ED2250F178F00F08683 /* ReachabilityManager.swift */; };
 		E1751ED4250F178F00F08683 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1751ED2250F178F00F08683 /* ReachabilityManager.swift */; };
+		E1941D262510735600106881 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D252510735600106881 /* String+Localized.swift */; };
+		E1941D272510735600106881 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D252510735600106881 /* String+Localized.swift */; };
+		E1941D292510C30500106881 /* MultiTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D282510C30500106881 /* MultiTargetType.swift */; };
+		E1941D2A2510C30500106881 /* MultiTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D282510C30500106881 /* MultiTargetType.swift */; };
 		E1F215122448338300F2CECD /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelModel.swift */; };
-		E1F2151624485CE700F2CECD /* MarvelDecodableTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */; };
+		E1F2151624485CE700F2CECD /* MarvelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,8 +67,10 @@
 		E1751ECC250F178A00F08683 /* MarvelModelFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelModelFailure.json; sourceTree = "<group>"; };
 		E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelModelSuccess.json; sourceTree = "<group>"; };
 		E1751ED2250F178F00F08683 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		E1941D252510735600106881 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		E1941D282510C30500106881 /* MultiTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTargetType.swift; sourceTree = "<group>"; };
 		E1F215112448338300F2CECD /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
-		E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDecodableTargetType.swift; sourceTree = "<group>"; };
+		E1F2151524485CE700F2CECD /* MarvelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +131,14 @@
 				E114F4A524481C7B0032A75F /* LaunchScreen.storyboard */,
 				E114F4A824481C7B0032A75F /* Info.plist */,
 				E1751ED2250F178F00F08683 /* ReachabilityManager.swift */,
+				E1941D282510C30500106881 /* MultiTargetType.swift */,
 				E114F4B424482D080032A75F /* ConnectionService.swift */,
 				716608F6244C163300738ADB /* CustomMoyaProvider.swift */,
-				E1F2151524485CE700F2CECD /* MarvelDecodableTargetType.swift */,
+				E1F2151524485CE700F2CECD /* MarvelApi.swift */,
 				E114F4AE244824730032A75F /* Marvel.swift */,
 				E1F215112448338300F2CECD /* MarvelModel.swift */,
 				E114F4B2244829CF0032A75F /* String+md5.swift */,
+				E1941D252510735600106881 /* String+Localized.swift */,
 				E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */,
 				E1751ECC250F178A00F08683 /* MarvelModelFailure.json */,
 			);
@@ -337,14 +345,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E114F49F24481C770032A75F /* ViewController.swift in Sources */,
-				E1F2151624485CE700F2CECD /* MarvelDecodableTargetType.swift in Sources */,
+				E1F2151624485CE700F2CECD /* MarvelApi.swift in Sources */,
 				E1F215122448338300F2CECD /* MarvelModel.swift in Sources */,
 				716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */,
+				E1941D292510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1751ED3250F178F00F08683 /* ReachabilityManager.swift in Sources */,
 				E114F49B24481C770032A75F /* AppDelegate.swift in Sources */,
 				E114F4AF244824730032A75F /* Marvel.swift in Sources */,
 				E114F4B3244829CF0032A75F /* String+md5.swift in Sources */,
 				E114F4B524482D080032A75F /* ConnectionService.swift in Sources */,
+				E1941D262510735600106881 /* String+Localized.swift in Sources */,
 				E114F49D24481C770032A75F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,14 +364,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1751EB7250F172D00F08683 /* ViewController.swift in Sources */,
-				E1751EB8250F172D00F08683 /* MarvelDecodableTargetType.swift in Sources */,
+				E1751EB8250F172D00F08683 /* MarvelApi.swift in Sources */,
 				E1751EB9250F172D00F08683 /* MarvelModel.swift in Sources */,
 				E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */,
+				E1941D2A2510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1751ED4250F178F00F08683 /* ReachabilityManager.swift in Sources */,
 				E1751EBB250F172D00F08683 /* AppDelegate.swift in Sources */,
 				E1751EBC250F172D00F08683 /* Marvel.swift in Sources */,
 				E1751EBD250F172D00F08683 /* String+md5.swift in Sources */,
 				E1751EBE250F172D00F08683 /* ConnectionService.swift in Sources */,
+				E1941D272510735600106881 /* String+Localized.swift in Sources */,
 				E1751EBF250F172D00F08683 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

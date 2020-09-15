@@ -11,40 +11,15 @@ import Moya
 
 // https://developer.marvel.com/docs
 
-protocol APIRetryable {
-    var retryCount: Int { get }
-}
-
-protocol Mockable {
-    var isStubSuccess: Bool { get }
-    var successFile: String { get }
-    var failureFile: String { get }
-}
-extension Mockable {
-    var successMockData: Data {
-        let path = Bundle.main.path(forResource: successFile, ofType: "json")
-        return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
-    }
-    
-    var failureMockData: Data {
-        let path = Bundle.main.path(forResource: failureFile, ofType: "json")
-        return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
-    }
-}
-
 protocol BaseResponse: Decodable {
     var code: Int { get }
     var status: String { get }
     var copyright: String { get }
 }
-
-protocol DecodableTargetType: TargetType, Mockable, APIRetryable {
-    associatedtype ResponseType: BaseResponse
-}
-
+ 
 /// 自定 Moya TargetType
 
-protocol MarvelDecodableTargetType: DecodableTargetType {}
+protocol MarvelDecodableTargetType: MultiTargetType {}
 extension MarvelDecodableTargetType {
     var publicKey: String { return "5c4a9f61a4746ba9a9060e5d7b3da067" }
     var privateKey: String { return "b7698afd7391a3c57ede85434b0a7d88b008d538" }
@@ -87,7 +62,15 @@ enum MarvelApi {
             encoding: URLEncoding.default)
         }
         
-        // MARK: Mockable
+        var authorizationType: AuthorizationType? {
+            return .bearer
+        }
+        
+        // MARK: MockableTargetType
+        var stubBehavir: StubBehavior {
+            return .never
+        }
+        
         var isStubSuccess: Bool {
             return true
         }
@@ -100,7 +83,7 @@ enum MarvelApi {
             return "MarvelModelFailure"
         }
         
-        // MARK: APIRetryable
+        // MARK: RetryableTargetType
         var retryCount: Int = 5
     }
 }

@@ -18,20 +18,13 @@ enum ConnectionResponseCode: Int {
     case tokenError          = 10020
 }
 
-enum ConnectionServiceError: Error {
-    case noNetwork
+enum ConnectionServiceError {
+    static let noNetwork = NSError(domain: "no.network.error",
+                                   code: 0,
+                                   userInfo: [NSLocalizedDescriptionKey: "noNetworkErrorMessage".localized])
 }
 
-// MARK: - RequestInterceptor
-extension ConnectionService: RequestInterceptor {
-    // To add defaut http header
-    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        var modifiedURLRequest = urlRequest
-//        modifiedURLRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
-//        modifiedURLRequest.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
-        completion(.success(modifiedURLRequest))
-    }
-}
+private let isTest = ProcessInfo.processInfo.environment.keys.contains("XCTestConfigurationFilePath")
 
 class ConnectionService {
     
@@ -53,16 +46,26 @@ class ConnectionService {
                           startRequestsImmediately: false,
                           interceptor: self)
         
+        let stubClosure = { (target: TargetType) -> StubBehavior in
+            #if MOCK
+            return StubBehavior.delayed(seconds: 0.1)
+            #else
+            return isTest ? .delayed(seconds: 0.1) : (target as! MockableTargetType).stubBehavir
+            #endif
+        }
+        
         // Setup provider
-        #if MOCK
-        provider = MoyaProvider(stubClosure: { _ in StubBehavior.delayed(seconds: 0.2) },
-                                session: session)
-        customProvider = CustomMoyaProvider(stubClosure: { _ in StubBehavior.delayed(seconds: 0.2) },
-                                            session: session)
-        #else
-        provider = MoyaProvider(session: session)
-        customProvider = CustomMoyaProvider(session: session)
-        #endif
+        
+        // Access Token Auth
+        let token = ""
+        let authPlugin = AccessTokenPlugin(tokenClosure: { _ in token })
+        
+        provider = MoyaProvider(stubClosure: stubClosure,
+                                plugins: [authPlugin]
+        )
+        customProvider = CustomMoyaProvider(stubClosure: stubClosure,
+                                            session: session,
+                                            plugins: [authPlugin])
     }
     
     
@@ -70,15 +73,18 @@ class ConnectionService {
 
 // MARK: - MoyaProvider
 extension ConnectionService {
-    func request<TargetType: DecodableTargetType>(_ request: TargetType) -> Single<TargetType.ResponseType> {
+    func request<TargetType: MultiTargetType>(_ request: TargetType) -> Single<TargetType.ResponseType> {
+        
         guard reachabilityManager.isReachable else {
             print("No network")
             return .error(ConnectionServiceError.noNetwork)
         }
+        
         return Single<TargetType.ResponseType>.create { single in
             self.rxRequest(request)
                 .subscribe(onSuccess: { response in
                     let responseCodeType = ConnectionResponseCode(rawValue: response.code)
+                    // TODO: 需優化 改用 retryWhen 來重新取得 refreshToken
                     switch responseCodeType {
                     case .success:
                         single(.success(response))
@@ -106,7 +112,7 @@ extension ConnectionService {
     }
     
     
-    private func rxRequest<TargetType: DecodableTargetType>(_ request: TargetType) -> Single<TargetType.ResponseType> {
+    private func rxRequest<TargetType: MultiTargetType>(_ request: TargetType) -> Single<TargetType.ResponseType> {
         let target = MultiTarget.init(request)
         return provider.rx.request(target)
             .filterSuccessfulStatusCodes()
@@ -136,16 +142,30 @@ extension ConnectionService {
 // MARK: - CustomProvider
 extension ConnectionService {
     @discardableResult
-    func requestDecoded<T: MarvelDecodableTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable {
-        // TODO: reachability
-        customProvider.requestDecoded(target, completion: completion)
+    func requestDecoded<T: MultiTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable {
+        
+        let cancellableRequest = customProvider.requestDecoded(target, completion: completion)
+        
+        if !reachabilityManager.isReachable {
+            cancellableRequest.cancel()
+            completion(.failure(ConnectionServiceError.noNetwork))
+        }
+        
+        return cancellableRequest
     }
     
     @discardableResult
-    func rxRequestDecoded<T: MarvelDecodableTargetType>(_ target: T, completion: ((Result<T.ResponseType, Error>) -> Void)? = nil) -> Single<T.ResponseType> {
-        // TODO: reachability
+    func rxRequestDecoded<T: MultiTargetType>(_ target: T, completion: ((Result<T.ResponseType, Error>) -> Void)? = nil) -> Single<T.ResponseType> {
+        
+        guard reachabilityManager.isReachable else {
+            return Single.create { single in
+                single(.error(ConnectionServiceError.noNetwork))
+                return Disposables.create {}
+            }
+        }
+        
         return Single<T.ResponseType>.create { [unowned self] single in
-            let cancellableToken = self.requestDecoded(target, completion: { result in
+            let cancellableRequest = self.requestDecoded(target, completion: { result in
                 switch result {
                 case .success(let response):
                     single(.success(response))
@@ -155,7 +175,7 @@ extension ConnectionService {
                 completion?(result)
             })
             return Disposables.create {
-                cancellableToken.cancel()
+                cancellableRequest.cancel()
             }
         }
         .retryWhen({ (errors: Observable<Error>) in
@@ -169,5 +189,16 @@ extension ConnectionService {
                     .take(1)
             }
         })
+    }
+}
+
+// MARK: - RequestInterceptor
+extension ConnectionService: RequestInterceptor {
+    // To add defaut http header
+    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        var modifiedURLRequest = urlRequest
+//        modifiedURLRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
+//        modifiedURLRequest.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+        completion(.success(modifiedURLRequest))
     }
 }
