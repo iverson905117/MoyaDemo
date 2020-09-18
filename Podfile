@@ -5,6 +5,7 @@ def sharePods
   # pod 'Moya'
   pod 'Moya/RxSwift'
   pod 'ReachabilitySwift'
+  pod 'RxCocoa'
 end
 
 

@@ -16,22 +16,25 @@ protocol RetryableTargetType {
 protocol MockableTargetType {
     var stubBehavir: StubBehavior { get }
     var isStubSuccess: Bool { get }
-    var successFile: String { get }
-    var failureFile: String { get }
+    var successFileName: String { get }
+    var failureFileName: String { get }
 }
 extension MockableTargetType {
     var successMockData: Data {
-        let path = Bundle.main.path(forResource: successFile, ofType: "json")
+        let path = Bundle.main.path(forResource: successFileName, ofType: "json")
         return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
     }
     var failureMockData: Data {
-        let path = Bundle.main.path(forResource: failureFile, ofType: "json")
+        let path = Bundle.main.path(forResource: failureFileName, ofType: "json")
         return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
+    }
+    var mockData: Data {
+        return isStubSuccess ? successMockData : failureMockData
     }
 }
 
-protocol DecodableTargetType: TargetType {
+protocol DecodableTargetType {
     associatedtype ResponseType: BaseResponse
 }
 
-protocol MultiTargetType: DecodableTargetType, MockableTargetType, RetryableTargetType, AccessTokenAuthorizable {}
+protocol MultiTargetType: TargetType, DecodableTargetType, MockableTargetType, RetryableTargetType, AccessTokenAuthorizable {}

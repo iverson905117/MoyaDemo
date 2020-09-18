@@ -10,6 +10,7 @@
 		036E87A123887E876A441DD8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		3B6767AAD7CF96BE07454EAE /* Pods_MoyaDemo_mock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98719EB8C9839505B8A4704F /* Pods_MoyaDemo_mock.framework */; };
 		716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716608F6244C163300738ADB /* CustomMoyaProvider.swift */; };
+		89C30D12584EB272CD300C46 /* Pods_MoyaDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233AB15F8993984AE6E8762C /* Pods_MoyaDemo.framework */; };
 		E114F49B24481C770032A75F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49A24481C770032A75F /* AppDelegate.swift */; };
 		E114F49D24481C770032A75F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49C24481C770032A75F /* SceneDelegate.swift */; };
 		E114F49F24481C770032A75F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49E24481C770032A75F /* ViewController.swift */; };
@@ -21,7 +22,7 @@
 		E114F4B524482D080032A75F /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B424482D080032A75F /* ConnectionService.swift */; };
 		E1751EB7250F172D00F08683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49E24481C770032A75F /* ViewController.swift */; };
 		E1751EB8250F172D00F08683 /* MarvelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelApi.swift */; };
-		E1751EB9250F172D00F08683 /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelModel.swift */; };
+		E1751EB9250F172D00F08683 /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelResponse.swift */; };
 		E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716608F6244C163300738ADB /* CustomMoyaProvider.swift */; };
 		E1751EBB250F172D00F08683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49A24481C770032A75F /* AppDelegate.swift */; };
 		E1751EBC250F172D00F08683 /* Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4AE244824730032A75F /* Marvel.swift */; };
@@ -31,23 +32,38 @@
 		E1751EC3250F172D00F08683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E114F4A524481C7B0032A75F /* LaunchScreen.storyboard */; };
 		E1751EC4250F172D00F08683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E114F4A324481C7B0032A75F /* Assets.xcassets */; };
 		E1751EC5250F172D00F08683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E114F4A024481C770032A75F /* Main.storyboard */; };
-		E1751ECE250F178A00F08683 /* MarvelModelFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECC250F178A00F08683 /* MarvelModelFailure.json */; };
-		E1751ECF250F178A00F08683 /* MarvelModelFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECC250F178A00F08683 /* MarvelModelFailure.json */; };
-		E1751ED0250F178A00F08683 /* MarvelModelSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */; };
-		E1751ED1250F178A00F08683 /* MarvelModelSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */; };
+		E1751ECE250F178A00F08683 /* MarvelResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECC250F178A00F08683 /* MarvelResponseFailure.json */; };
+		E1751ECF250F178A00F08683 /* MarvelResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECC250F178A00F08683 /* MarvelResponseFailure.json */; };
+		E1751ED0250F178A00F08683 /* MarvelResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECD250F178A00F08683 /* MarvelResponseSuccess.json */; };
+		E1751ED1250F178A00F08683 /* MarvelResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1751ECD250F178A00F08683 /* MarvelResponseSuccess.json */; };
 		E1751ED3250F178F00F08683 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1751ED2250F178F00F08683 /* ReachabilityManager.swift */; };
 		E1751ED4250F178F00F08683 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1751ED2250F178F00F08683 /* ReachabilityManager.swift */; };
 		E1941D262510735600106881 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D252510735600106881 /* String+Localized.swift */; };
 		E1941D272510735600106881 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D252510735600106881 /* String+Localized.swift */; };
 		E1941D292510C30500106881 /* MultiTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D282510C30500106881 /* MultiTargetType.swift */; };
 		E1941D2A2510C30500106881 /* MultiTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D282510C30500106881 /* MultiTargetType.swift */; };
-		E1F215122448338300F2CECD /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelModel.swift */; };
+		E1941D2C2511E8D200106881 /* RefreshTokenResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D2B2511E8D200106881 /* RefreshTokenResponseSuccess.json */; };
+		E1941D2D2511E8D200106881 /* RefreshTokenResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D2B2511E8D200106881 /* RefreshTokenResponseSuccess.json */; };
+		E1941D2F2511E99500106881 /* RefreshTokenResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D2E2511E99500106881 /* RefreshTokenResponseFailure.json */; };
+		E1941D302511E99500106881 /* RefreshTokenResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D2E2511E99500106881 /* RefreshTokenResponseFailure.json */; };
+		E1941D322511F48000106881 /* LoginResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D312511F48000106881 /* LoginResponseSuccess.json */; };
+		E1941D332511F48000106881 /* LoginResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D312511F48000106881 /* LoginResponseSuccess.json */; };
+		E1941D352511F4B100106881 /* LoginResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D342511F4B100106881 /* LoginResponseFailure.json */; };
+		E1941D362511F4B100106881 /* LoginResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D342511F4B100106881 /* LoginResponseFailure.json */; };
+		E1941D382511F5A200106881 /* MockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D372511F5A200106881 /* MockApi.swift */; };
+		E1941D392511F5A200106881 /* MockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D372511F5A200106881 /* MockApi.swift */; };
+		E1941D3B2511F97000106881 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3A2511F97000106881 /* MockResponse.swift */; };
+		E1941D3C2511F97000106881 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3A2511F97000106881 /* MockResponse.swift */; };
+		E1941D3E2512076B00106881 /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3D2512076B00106881 /* TokenData.swift */; };
+		E1941D3F2512076B00106881 /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3D2512076B00106881 /* TokenData.swift */; };
+		E1F215122448338300F2CECD /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelResponse.swift */; };
 		E1F2151624485CE700F2CECD /* MarvelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05F15ABBCAF2324B20EF8BD0 /* Pods-MoyaDemo_mock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo_mock.debug.xcconfig"; path = "Target Support Files/Pods-MoyaDemo_mock/Pods-MoyaDemo_mock.debug.xcconfig"; sourceTree = "<group>"; };
 		19E58E0DD5DDA754AB53361C /* Pods-MoyaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo.debug.xcconfig"; path = "Target Support Files/Pods-MoyaDemo/Pods-MoyaDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		233AB15F8993984AE6E8762C /* Pods_MoyaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1CFA8806BD6582AF2ED19C /* Pods-MoyaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaDemo.release.xcconfig"; path = "Target Support Files/Pods-MoyaDemo/Pods-MoyaDemo.release.xcconfig"; sourceTree = "<group>"; };
 		716608F6244C163300738ADB /* CustomMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoyaProvider.swift; sourceTree = "<group>"; };
 		98719EB8C9839505B8A4704F /* Pods_MoyaDemo_mock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaDemo_mock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,12 +80,19 @@
 		E114F4B2244829CF0032A75F /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		E114F4B424482D080032A75F /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		E1751ECA250F172D00F08683 /* MoyaDemo_mock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaDemo_mock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1751ECC250F178A00F08683 /* MarvelModelFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelModelFailure.json; sourceTree = "<group>"; };
-		E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelModelSuccess.json; sourceTree = "<group>"; };
+		E1751ECC250F178A00F08683 /* MarvelResponseFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelResponseFailure.json; sourceTree = "<group>"; };
+		E1751ECD250F178A00F08683 /* MarvelResponseSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelResponseSuccess.json; sourceTree = "<group>"; };
 		E1751ED2250F178F00F08683 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		E1941D252510735600106881 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		E1941D282510C30500106881 /* MultiTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTargetType.swift; sourceTree = "<group>"; };
-		E1F215112448338300F2CECD /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
+		E1941D2B2511E8D200106881 /* RefreshTokenResponseSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RefreshTokenResponseSuccess.json; sourceTree = "<group>"; };
+		E1941D2E2511E99500106881 /* RefreshTokenResponseFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RefreshTokenResponseFailure.json; sourceTree = "<group>"; };
+		E1941D312511F48000106881 /* LoginResponseSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginResponseSuccess.json; sourceTree = "<group>"; };
+		E1941D342511F4B100106881 /* LoginResponseFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginResponseFailure.json; sourceTree = "<group>"; };
+		E1941D372511F5A200106881 /* MockApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApi.swift; sourceTree = "<group>"; };
+		E1941D3A2511F97000106881 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
+		E1941D3D2512076B00106881 /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
+		E1F215112448338300F2CECD /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
 		E1F2151524485CE700F2CECD /* MarvelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				036E87A123887E876A441DD8 /* (null) in Frameworks */,
+				89C30D12584EB272CD300C46 /* Pods_MoyaDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				98719EB8C9839505B8A4704F /* Pods_MoyaDemo_mock.framework */,
+				233AB15F8993984AE6E8762C /* Pods_MoyaDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -135,12 +160,19 @@
 				E114F4B424482D080032A75F /* ConnectionService.swift */,
 				716608F6244C163300738ADB /* CustomMoyaProvider.swift */,
 				E1F2151524485CE700F2CECD /* MarvelApi.swift */,
+				E1941D372511F5A200106881 /* MockApi.swift */,
 				E114F4AE244824730032A75F /* Marvel.swift */,
-				E1F215112448338300F2CECD /* MarvelModel.swift */,
+				E1F215112448338300F2CECD /* MarvelResponse.swift */,
+				E1941D3A2511F97000106881 /* MockResponse.swift */,
 				E114F4B2244829CF0032A75F /* String+md5.swift */,
 				E1941D252510735600106881 /* String+Localized.swift */,
-				E1751ECD250F178A00F08683 /* MarvelModelSuccess.json */,
-				E1751ECC250F178A00F08683 /* MarvelModelFailure.json */,
+				E1941D3D2512076B00106881 /* TokenData.swift */,
+				E1751ECD250F178A00F08683 /* MarvelResponseSuccess.json */,
+				E1751ECC250F178A00F08683 /* MarvelResponseFailure.json */,
+				E1941D312511F48000106881 /* LoginResponseSuccess.json */,
+				E1941D342511F4B100106881 /* LoginResponseFailure.json */,
+				E1941D2B2511E8D200106881 /* RefreshTokenResponseSuccess.json */,
+				E1941D2E2511E99500106881 /* RefreshTokenResponseFailure.json */,
 			);
 			path = MoyaDemo;
 			sourceTree = "<group>";
@@ -236,11 +268,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1751ED0250F178A00F08683 /* MarvelModelSuccess.json in Resources */,
+				E1751ED0250F178A00F08683 /* MarvelResponseSuccess.json in Resources */,
 				E114F4A724481C7B0032A75F /* LaunchScreen.storyboard in Resources */,
 				E114F4A424481C7B0032A75F /* Assets.xcassets in Resources */,
+				E1941D352511F4B100106881 /* LoginResponseFailure.json in Resources */,
 				E114F4A224481C770032A75F /* Main.storyboard in Resources */,
-				E1751ECE250F178A00F08683 /* MarvelModelFailure.json in Resources */,
+				E1751ECE250F178A00F08683 /* MarvelResponseFailure.json in Resources */,
+				E1941D2C2511E8D200106881 /* RefreshTokenResponseSuccess.json in Resources */,
+				E1941D322511F48000106881 /* LoginResponseSuccess.json in Resources */,
+				E1941D2F2511E99500106881 /* RefreshTokenResponseFailure.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,11 +284,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1751ED1250F178A00F08683 /* MarvelModelSuccess.json in Resources */,
+				E1751ED1250F178A00F08683 /* MarvelResponseSuccess.json in Resources */,
 				E1751EC3250F172D00F08683 /* LaunchScreen.storyboard in Resources */,
 				E1751EC4250F172D00F08683 /* Assets.xcassets in Resources */,
+				E1941D362511F4B100106881 /* LoginResponseFailure.json in Resources */,
 				E1751EC5250F172D00F08683 /* Main.storyboard in Resources */,
-				E1751ECF250F178A00F08683 /* MarvelModelFailure.json in Resources */,
+				E1751ECF250F178A00F08683 /* MarvelResponseFailure.json in Resources */,
+				E1941D2D2511E8D200106881 /* RefreshTokenResponseSuccess.json in Resources */,
+				E1941D332511F48000106881 /* LoginResponseSuccess.json in Resources */,
+				E1941D302511E99500106881 /* RefreshTokenResponseFailure.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +386,7 @@
 			files = (
 				E114F49F24481C770032A75F /* ViewController.swift in Sources */,
 				E1F2151624485CE700F2CECD /* MarvelApi.swift in Sources */,
-				E1F215122448338300F2CECD /* MarvelModel.swift in Sources */,
+				E1F215122448338300F2CECD /* MarvelResponse.swift in Sources */,
 				716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */,
 				E1941D292510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1751ED3250F178F00F08683 /* ReachabilityManager.swift in Sources */,
@@ -354,7 +394,10 @@
 				E114F4AF244824730032A75F /* Marvel.swift in Sources */,
 				E114F4B3244829CF0032A75F /* String+md5.swift in Sources */,
 				E114F4B524482D080032A75F /* ConnectionService.swift in Sources */,
+				E1941D3E2512076B00106881 /* TokenData.swift in Sources */,
 				E1941D262510735600106881 /* String+Localized.swift in Sources */,
+				E1941D382511F5A200106881 /* MockApi.swift in Sources */,
+				E1941D3B2511F97000106881 /* MockResponse.swift in Sources */,
 				E114F49D24481C770032A75F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +408,7 @@
 			files = (
 				E1751EB7250F172D00F08683 /* ViewController.swift in Sources */,
 				E1751EB8250F172D00F08683 /* MarvelApi.swift in Sources */,
-				E1751EB9250F172D00F08683 /* MarvelModel.swift in Sources */,
+				E1751EB9250F172D00F08683 /* MarvelResponse.swift in Sources */,
 				E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */,
 				E1941D2A2510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1751ED4250F178F00F08683 /* ReachabilityManager.swift in Sources */,
@@ -373,7 +416,10 @@
 				E1751EBC250F172D00F08683 /* Marvel.swift in Sources */,
 				E1751EBD250F172D00F08683 /* String+md5.swift in Sources */,
 				E1751EBE250F172D00F08683 /* ConnectionService.swift in Sources */,
+				E1941D3F2512076B00106881 /* TokenData.swift in Sources */,
 				E1941D272510735600106881 /* String+Localized.swift in Sources */,
+				E1941D392511F5A200106881 /* MockApi.swift in Sources */,
+				E1941D3C2511F97000106881 /* MockResponse.swift in Sources */,
 				E1751EBF250F172D00F08683 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

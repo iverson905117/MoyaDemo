@@ -10,46 +10,73 @@ import Foundation
 import Moya
 
 // https://developer.marvel.com/docs
-
-protocol BaseResponse: Decodable {
-    var code: Int { get }
-    var status: String { get }
-    var copyright: String { get }
-}
  
 /// 自定 Moya TargetType
 
-protocol MarvelDecodableTargetType: MultiTargetType {}
-extension MarvelDecodableTargetType {
+protocol MarvelApiBase: MultiTargetType {
+    var parameters: [String: Any]? { get }
+}
+extension MarvelApiBase {
     var publicKey: String { return "5c4a9f61a4746ba9a9060e5d7b3da067" }
     var privateKey: String { return "b7698afd7391a3c57ede85434b0a7d88b008d538" }
     var baseURL: URL { return URL(string: "https://gateway.marvel.com/v1/public")! }
     var headers: [String : String]? { return nil }
 }
 
+enum MarvelApi {}
+
 /// Marvel API TargetType enumeration
-enum MarvelApi {
-    struct QueryComics: MarvelDecodableTargetType {
+extension MarvelApi {
+    struct QueryComics: MarvelApiBase {
         
-        typealias ResponseType = MarvelModel
+        typealias ResponseType = MarvelResponse
         
-        var path: String { return "/comics" }
+        var parameters: [String : Any]?
         
-        var method: Moya.Method { return .get }
+        var path: String {
+            return "/comics"
+        }
+        
+        var method: Moya.Method {
+            return .get
+        }
         
         var sampleData: Data {
-            if isStubSuccess {
-                return successMockData
-            } else {
-                return failureMockData
-            }
+            return mockData
         }
         
         var task: Task {
+            return .requestParameters(parameters: parameters ?? [:], encoding: URLEncoding.default)
+        }
+        
+        var authorizationType: AuthorizationType? {
+            return .none
+        }
+        
+        // MARK: MockableTargetType
+        var stubBehavir: StubBehavior {
+            return .delayed(seconds: 1)
+        }
+        
+        var isStubSuccess: Bool {
+            return true
+        }
+        
+        var successFileName: String {
+            return "MarvelResponseSuccess"
+        }
+        
+        var failureFileName: String {
+            return "MarvelResponseFailure"
+        }
+        
+        // MARK: RetryableTargetType
+        var retryCount: Int = 5
+        
+        init() {
             let ts = "\(Date().timeIntervalSince1970)"
-            let hash = "\(ts + privateKey + publicKey)".md5()
-            return .requestParameters(
-            parameters: [
+            let hash = "\(ts + self.privateKey + self.publicKey)".md5()
+            self.parameters = [
                 "format": "comic",
                 "formatType": "comic",
                 "orderBy": "-onsaleDate",
@@ -58,32 +85,7 @@ enum MarvelApi {
                 "apikey": Marvel.publicKey,
                 "ts": ts,
                 "hash": hash!
-            ],
-            encoding: URLEncoding.default)
+            ]
         }
-        
-        var authorizationType: AuthorizationType? {
-            return .bearer
-        }
-        
-        // MARK: MockableTargetType
-        var stubBehavir: StubBehavior {
-            return .never
-        }
-        
-        var isStubSuccess: Bool {
-            return true
-        }
-        
-        var successFile: String {
-            return "MarvelModelSuccess"
-        }
-        
-        var failureFile: String {
-            return "MarvelModelFailure"
-        }
-        
-        // MARK: RetryableTargetType
-        var retryCount: Int = 5
     }
 }

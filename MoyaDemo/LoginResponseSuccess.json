@@ -1,0 +1,9 @@
+{
+    "code": 200,
+    "status": "OK",
+    "copyright": "© 2020 MARVEL",
+    "token": "myToken123456",
+    "refreshToken": "myRefreshToken123456",
+    "tokenExpireIn": ""
+}
+
