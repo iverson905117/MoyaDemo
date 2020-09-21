@@ -81,9 +81,11 @@ class ConnectionService {
 }
 
 // MARK: - MoyaProvider
+
 extension ConnectionService {
     
-    private func baseRequest<TargetType: MultiTargetType>(_ request: TargetType) -> Single<TargetType.ResponseType> {
+    // MARK: Request
+    private func rxBaseRequest<TargetType: MultiTargetType>(_ request: TargetType) -> Single<TargetType.ResponseType> {
         let target = MultiTarget(request)
         return provider.rx.request(target)
             .filterSuccessfulStatusCodes()
@@ -91,9 +93,11 @@ extension ConnectionService {
             .retryWhen({ error in
                 return error.enumerated().flatMap { (attempt, error) -> Observable<Int> in
                     guard request.retryCount > attempt + 1 else {
+                        print("API failure retry max count...")
                         throw error
                     }
                     // Delay retry as seconds
+                    print("API failure retry \(attempt)...")
                     return Observable<Int>
                         .timer(.seconds(1), scheduler: MainScheduler.instance)
                         .take(1)
@@ -115,7 +119,7 @@ extension ConnectionService {
             return
         }
         
-        baseRequest(target)
+        rxBaseRequest(target)
             .flatMap { response -> Single<TargetType.ResponseType> in
                 // (vic) test
                 if refrshTokenPassFlag {
@@ -137,7 +141,7 @@ extension ConnectionService {
                         switch result {
                         case .success:
                             print("Refresh token success...")
-                            print("retry request...")
+                            print("Retry request...")
                             refrshTokenPassFlag = true // (vic) test
                             return Observable.just(())
                         case .failure:
@@ -176,76 +180,8 @@ extension ConnectionService {
             return Disposables.create()
         }
     }
-}
-
-// MARK: - CustomProvider
-extension ConnectionService {
-    @discardableResult
-    func requestDecoded<T: MultiTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable {
-        
-        let cancellableRequest = customProvider.requestDecoded(target, completion: completion)
-        
-        if !reachabilityManager.isReachable {
-            cancellableRequest.cancel()
-            completion(.failure(ConnectionServiceError.noNetwork))
-        }
-        
-        return cancellableRequest
-    }
     
-    @discardableResult
-    func rxRequestDecoded<T: MultiTargetType>(_ target: T, completion: ((Result<T.ResponseType, Error>) -> Void)? = nil) -> Single<T.ResponseType> {
-        
-        guard reachabilityManager.isReachable else {
-            return Single.create { single in
-                single(.error(ConnectionServiceError.noNetwork))
-                return Disposables.create {}
-            }
-        }
-        
-        return Single<T.ResponseType>.create { [unowned self] single in
-            let cancellableRequest = self.requestDecoded(target, completion: { result in
-                switch result {
-                case .success(let response):
-                    single(.success(response))
-                case .failure(let error):
-                    single(.error(error))
-                }
-            })
-            return Disposables.create {
-                cancellableRequest.cancel()
-            }
-        }
-        .retryWhen({ (errors: Observable<Error>) in
-            return errors.enumerated().flatMap { (attempt, error) -> Observable<Int> in
-                guard target.retryCount > attempt + 1 else {
-                    throw error
-                }
-                // Delay retry as seconds
-                return Observable<Int>
-                    .timer(.seconds(1), scheduler: MainScheduler.instance)
-                    .take(1)
-            }}
-        )
-        .catchError { error in
-            return .error(error)
-        }
-    }
-}
-
-// MARK: - RequestInterceptor
-extension ConnectionService: RequestInterceptor {
-    // To add defaut http header
-    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        var modifiedURLRequest = urlRequest
-//        modifiedURLRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
-//        modifiedURLRequest.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
-        completion(.success(modifiedURLRequest))
-    }
-}
-
-// MARK: - Refresh token
-extension ConnectionService {
+    // MARK: Refresh token
     enum RefreshTokenResult {
         case success, failure
     }
@@ -273,5 +209,115 @@ extension ConnectionService {
                 .disposed(by: self.disposeBag)
             return Disposables.create()
         }
+    }
+}
+
+// MARK: - CustomProvider
+
+extension ConnectionService {
+    
+    // MARK: Request
+    @discardableResult
+    func requestDecoded<T: MultiTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable? {
+        
+        if !reachabilityManager.isReachable {
+            completion(.failure(ConnectionServiceError.noNetwork))
+            return nil
+        }
+        
+//        let cancellableRequest = customProvider.requestDecoded(target, completion: completion)
+        let cancellableRequest = customProvider.requestDecoded(target, completion: { result in
+            switch result {
+            case .success(let response):
+                let tokenError = TokenError(response.code)
+                switch tokenError {
+                case .none:
+                    print("Token OK...")
+                    completion(.success(response))
+                case .tokenExpired:
+                    print("Token expired...")
+                    TokenData.removeData()
+                    // TODO: Token expired handle
+                default:
+                    print("Token error logout...")
+                    TokenData.removeData()
+                    completion(.failure(tokenError))
+                }
+            case .failure(let error):
+                if target.retryCount > 0 {
+                    print("API failure retry...")
+                    var target = target
+                    target.retryCount -= 1
+                    self.requestDecoded(target, completion: { result in
+                        switch result {
+                        case .success(let response):
+                            completion(.success(response))
+                        default:
+                            break
+                        }
+                    })
+                } else {
+                    print("API failure retry max count...")
+                    completion(.failure(error))
+                }
+            }
+        })
+        
+        return cancellableRequest
+    }
+    
+    @discardableResult
+    func rxRequestDecoded<T: MultiTargetType>(_ target: T, completion: ((Result<T.ResponseType, Error>) -> Void)? = nil) -> Single<T.ResponseType> {
+        
+        guard reachabilityManager.isReachable else {
+            return Single.create { single in
+                single(.error(ConnectionServiceError.noNetwork))
+                return Disposables.create {}
+            }
+        }
+        
+        return Single<T.ResponseType>.create { [unowned self] single in
+            let cancellableRequest = self.requestDecoded(target, completion: { result in
+                switch result {
+                case .success(let response):
+                    single(.success(response))
+                case .failure(let error):
+                    single(.error(error))
+                }
+            })
+            return Disposables.create {
+                cancellableRequest?.cancel()
+            }
+        }
+        .retryWhen({ (errors: Observable<Error>) in
+            return errors.enumerated().flatMap { (attempt, error) -> Observable<Int> in
+                guard target.retryCount > attempt + 1 else {
+                    throw error
+                }
+                // Delay retry as seconds
+                return Observable<Int>
+                    .timer(.seconds(1), scheduler: MainScheduler.instance)
+                    .take(1)
+            }}
+        )
+        .catchError { error in
+            return .error(error)
+        }
+    }
+    
+    // MARK: Refresh token
+    func refreshToken() {
+        
+    }
+}
+
+// MARK: - RequestInterceptor
+extension ConnectionService: RequestInterceptor {
+    // To add defaut http header
+    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        var modifiedURLRequest = urlRequest
+//        modifiedURLRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
+//        modifiedURLRequest.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+        completion(.success(modifiedURLRequest))
     }
 }

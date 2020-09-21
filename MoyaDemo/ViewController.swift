@@ -26,10 +26,10 @@ class ViewController: UIViewController {
 //        queryMarvelComics()
 //        queryMarvelComicsWithRx()
         
-        queryMarvel_MoyaProvider()
+//        queryMarvel_MoyaProvider()
 //        queryMarvel_MoyaProvider_rx()
         
-//        queryMarvel_CustomProvider()
+        queryMarvel_CustomProvider()
 //        queryMarvel_CustomProvider_rx()
     }
     

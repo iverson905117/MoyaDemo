@@ -46,9 +46,7 @@ extension MockApi {
             return "LoginResponseFailure"
         }
         
-        var retryCount: Int {
-            return 0
-        }
+        var retryCount: Int = 0
         
         var authorizationType: AuthorizationType? {
             .none
@@ -97,9 +95,7 @@ extension MockApi {
             return "LoginResponseFailure"
         }
         
-        var retryCount: Int {
-            return 0
-        }
+        var retryCount: Int = 0
         
         var authorizationType: AuthorizationType? {
             .none
@@ -149,9 +145,7 @@ extension MockApi {
             return "RefreshTokenResponseFailure"
         }
         
-        var retryCount: Int {
-            return 2
-        }
+        var retryCount: Int = 2
         
         var authorizationType: AuthorizationType? {
             return .none

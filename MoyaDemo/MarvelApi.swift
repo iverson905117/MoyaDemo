@@ -55,7 +55,7 @@ extension MarvelApi {
         
         // MARK: MockableTargetType
         var stubBehavir: StubBehavior {
-            return .delayed(seconds: 1)
+            return .never
         }
         
         var isStubSuccess: Bool {

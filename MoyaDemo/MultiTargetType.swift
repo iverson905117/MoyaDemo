@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 protocol RetryableTargetType {
-    var retryCount: Int { get }
+    var retryCount: Int { get set }
 }
 
 protocol MockableTargetType {
