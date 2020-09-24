@@ -13,6 +13,19 @@ class TokenData: NSObject {
     static var refreshToken: String = ""
     static var tokenExpiredIn: String = ""
     
+    static func updateToken(token: String?, tokenExpiredIn: String?, refreshToken: String?) {
+        print("updateToken...")
+        if let token = token {
+            self.token = token
+        }
+        if let tokenExpiredIn = tokenExpiredIn {
+            self.tokenExpiredIn = tokenExpiredIn
+        }
+        if let refreshToken = refreshToken {
+            self.refreshToken = refreshToken
+        }
+    }
+    
     static func removeData() {
         print("TokenData.removeData()...")
         token = ""

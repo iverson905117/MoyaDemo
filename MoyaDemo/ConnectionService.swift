@@ -44,6 +44,7 @@ class ConnectionService {
     private let disposeBag = DisposeBag()
     var session: Session!
     private lazy var refreshTokenObservable = refreshTokenRequest().share()
+    private let refreshTokenService = RefreshTokenService()
     
     private init() {
         // Setup session
@@ -51,7 +52,9 @@ class ConnectionService {
         configuration.headers = .default
         configuration.timeoutIntervalForRequest = 10 // as seconds
         configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        
         // SSL pinning ServerTrustPolicyManager ...
+        
         session = Session(configuration: configuration,
                           startRequestsImmediately: false,
                           interceptor: self)
@@ -67,15 +70,14 @@ class ConnectionService {
         // Setup provider
         
         // Access Token Auth pluging
-        let token = ""
-        let authPlugin = AccessTokenPlugin(tokenClosure: { _ in token })
+        let accessTokenPlugin = AccessTokenPlugin(tokenClosure: { _ in TokenData.token })
         
         provider = MoyaProvider(stubClosure: stubClosure,
-                                plugins: [authPlugin])
+                                plugins: [accessTokenPlugin])
         
         customProvider = CustomMoyaProvider(stubClosure: stubClosure,
                                             session: session,
-                                            plugins: [authPlugin])
+                                            plugins: [accessTokenPlugin])
     }
     
 }
@@ -122,7 +124,7 @@ extension ConnectionService {
         rxBaseRequest(target)
             .flatMap { response -> Single<TargetType.ResponseType> in
                 // (vic) test
-                if refrshTokenPassFlag {
+                if refreshTokenPassFlag {
                     print("Retry marvel api success...")
                     return .just(response)
                 }
@@ -142,7 +144,7 @@ extension ConnectionService {
                         case .success:
                             print("Refresh token success...")
                             print("Retry request...")
-                            refrshTokenPassFlag = true // (vic) test
+                            refreshTokenPassFlag = true // (vic) test
                             return Observable.just(())
                         case .failure:
                             print("Refresh token fail...")
@@ -220,26 +222,52 @@ extension ConnectionService {
     @discardableResult
     func requestDecoded<T: MultiTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable? {
         
-        if !reachabilityManager.isReachable {
+        print("api: \(target.path)")
+        
+        guard reachabilityManager.isReachable else {
             completion(.failure(ConnectionServiceError.noNetwork))
             return nil
         }
         
-//        let cancellableRequest = customProvider.requestDecoded(target, completion: completion)
-        let cancellableRequest = customProvider.requestDecoded(target, completion: { result in
+        let cancellableRequest = customProvider.requestDecoded(target, completion: { [unowned self] result in
             switch result {
             case .success(let response):
+                print("response code: \(response.code)")
                 let tokenError = TokenError(response.code)
                 switch tokenError {
                 case .none:
-                    print("Token OK...")
+                    print("Token none error...\(target.path)")
                     completion(.success(response))
                 case .tokenExpired:
-                    print("Token expired...")
-                    TokenData.removeData()
-                    // TODO: Token expired handle
+                    // (vic) test
+                    if refreshTokenPassFlag {
+                        print("Retry marvel api success...")
+                        completion(.success(response))
+                    } else {
+                        print("Token expired...")
+                        self.refreshTokenService.start { result in
+                            switch result {
+                            case .success:
+                                print("Refresh token success...")
+                                print("Retry request...")
+                                refreshTokenPassFlag = true // (vic) test
+                                self.requestDecoded(target, completion: { result in
+                                    switch result {
+                                    case .success(let response):
+                                        completion(.success(response))
+                                    case .failure(let error):
+                                        completion(.failure(error))
+                                    }
+                                })
+                            case .failure(let error):
+                                print("Refresh token fail...")
+                                completion(.failure(error))
+                            }
+                        }
+                    }
                 default:
-                    print("Token error logout...")
+                    print("Token error...")
+                    print("Logout...")
                     TokenData.removeData()
                     completion(.failure(tokenError))
                 }
@@ -268,14 +296,7 @@ extension ConnectionService {
     
     @discardableResult
     func rxRequestDecoded<T: MultiTargetType>(_ target: T, completion: ((Result<T.ResponseType, Error>) -> Void)? = nil) -> Single<T.ResponseType> {
-        
-        guard reachabilityManager.isReachable else {
-            return Single.create { single in
-                single(.error(ConnectionServiceError.noNetwork))
-                return Disposables.create {}
-            }
-        }
-        
+                
         return Single<T.ResponseType>.create { [unowned self] single in
             let cancellableRequest = self.requestDecoded(target, completion: { result in
                 switch result {
@@ -289,25 +310,6 @@ extension ConnectionService {
                 cancellableRequest?.cancel()
             }
         }
-        .retryWhen({ (errors: Observable<Error>) in
-            return errors.enumerated().flatMap { (attempt, error) -> Observable<Int> in
-                guard target.retryCount > attempt + 1 else {
-                    throw error
-                }
-                // Delay retry as seconds
-                return Observable<Int>
-                    .timer(.seconds(1), scheduler: MainScheduler.instance)
-                    .take(1)
-            }}
-        )
-        .catchError { error in
-            return .error(error)
-        }
-    }
-    
-    // MARK: Refresh token
-    func refreshToken() {
-        
     }
 }
 

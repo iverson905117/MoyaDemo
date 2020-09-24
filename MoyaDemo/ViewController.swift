@@ -10,7 +10,7 @@ import UIKit
 import Moya
 import RxSwift
 
-var refrshTokenPassFlag = false // (vic) test
+var refreshTokenPassFlag = false // (vic) test
 
 class ViewController: UIViewController {
     
@@ -29,17 +29,15 @@ class ViewController: UIViewController {
 //        queryMarvel_MoyaProvider()
 //        queryMarvel_MoyaProvider_rx()
         
-        queryMarvel_CustomProvider()
-//        queryMarvel_CustomProvider_rx()
+//        queryMarvel_CustomProvider()
+        queryMarvel_CustomProvider_rx()
     }
     
     @IBAction func firstlogin(_ sender: Any) {
         connectionService.rxRequest(MockApi.FirstLogin(account: "VicKang", password: "123456"))
-            .subscribe(onSuccess: { [unowned self] response in
+            .subscribe(onSuccess: { response in
                 print(response)
-                TokenData.token = response.token
-                TokenData.refreshToken = response.refreshToken
-                TokenData.tokenExpiredIn = response.tokenExpireIn
+                TokenData.updateToken(token: response.token, tokenExpiredIn: response.tokenExpireIn, refreshToken: response.refreshToken)
             }, onError: { error in
                 print(error.localizedDescription)
             })
@@ -50,7 +48,7 @@ class ViewController: UIViewController {
         connectionService.rxRequest(MockApi.Login(token: TokenData.token))
             .subscribe(onSuccess: { response in
                 print(response)
-                TokenData.refreshToken = response.refreshToken
+                TokenData.updateToken(token: nil, tokenExpiredIn: nil, refreshToken: response.refreshToken)
             }, onError: { error in
                 print(error.localizedDescription)
             })
@@ -60,7 +58,7 @@ class ViewController: UIViewController {
     @IBAction func logout(_ sender: Any) {
         print("Logout")
         TokenData.removeData()
-        refrshTokenPassFlag = false
+        refreshTokenPassFlag = false
     }
     
     // MARK: -
@@ -137,8 +135,8 @@ class ViewController: UIViewController {
     func queryMarvel_CustomProvider_rx() {
         print(#function)
         connectionService.rxRequestDecoded(MarvelApi.QueryComics())
-            .subscribe(onSuccess: { marvelModel in
-                print(marvelModel)
+            .subscribe(onSuccess: { model in
+                print(model)
             }, onError: { error in
                 print(error.localizedDescription)
             })
