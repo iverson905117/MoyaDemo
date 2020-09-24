@@ -24,7 +24,7 @@
 		E114F4B3244829CF0032A75F /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B2244829CF0032A75F /* String+md5.swift */; };
 		E114F4B524482D080032A75F /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B424482D080032A75F /* ConnectionService.swift */; };
 		E1751EB7250F172D00F08683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49E24481C770032A75F /* ViewController.swift */; };
-		E1751EB8250F172D00F08683 /* MarvelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelApi.swift */; };
+		E1751EB8250F172D00F08683 /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelAPI.swift */; };
 		E1751EB9250F172D00F08683 /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelResponse.swift */; };
 		E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716608F6244C163300738ADB /* CustomMoyaProvider.swift */; };
 		E1751EBB250F172D00F08683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49A24481C770032A75F /* AppDelegate.swift */; };
@@ -53,14 +53,52 @@
 		E1941D332511F48000106881 /* LoginResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D312511F48000106881 /* LoginResponseSuccess.json */; };
 		E1941D352511F4B100106881 /* LoginResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D342511F4B100106881 /* LoginResponseFailure.json */; };
 		E1941D362511F4B100106881 /* LoginResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E1941D342511F4B100106881 /* LoginResponseFailure.json */; };
-		E1941D382511F5A200106881 /* MockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D372511F5A200106881 /* MockApi.swift */; };
-		E1941D392511F5A200106881 /* MockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D372511F5A200106881 /* MockApi.swift */; };
+		E1941D382511F5A200106881 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D372511F5A200106881 /* MockAPI.swift */; };
+		E1941D392511F5A200106881 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D372511F5A200106881 /* MockAPI.swift */; };
 		E1941D3B2511F97000106881 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3A2511F97000106881 /* MockResponse.swift */; };
 		E1941D3C2511F97000106881 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3A2511F97000106881 /* MockResponse.swift */; };
 		E1941D3E2512076B00106881 /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3D2512076B00106881 /* TokenData.swift */; };
 		E1941D3F2512076B00106881 /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1941D3D2512076B00106881 /* TokenData.swift */; };
+		E195A104251C9836002605E2 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A103251C9836002605E2 /* GitHubAPI.swift */; };
+		E195A105251C9836002605E2 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A103251C9836002605E2 /* GitHubAPI.swift */; };
+		E195A106251C9836002605E2 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A103251C9836002605E2 /* GitHubAPI.swift */; };
+		E195A108251C9F09002605E2 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A107251C9F09002605E2 /* GitHubResponse.swift */; };
+		E195A109251C9F09002605E2 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A107251C9F09002605E2 /* GitHubResponse.swift */; };
+		E195A10A251C9F09002605E2 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A107251C9F09002605E2 /* GitHubResponse.swift */; };
+		E195A112251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */; };
+		E195A113251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */; };
+		E195A114251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */; };
+		E195A11A251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */; };
+		E195A11B251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */; };
+		E195A11C251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */; };
+		E195A126251CAE05002605E2 /* MarvelAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A125251CAE05002605E2 /* MarvelAPIBase.swift */; };
+		E195A127251CAE05002605E2 /* MarvelAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A125251CAE05002605E2 /* MarvelAPIBase.swift */; };
+		E195A128251CAE05002605E2 /* MarvelAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A125251CAE05002605E2 /* MarvelAPIBase.swift */; };
+		E195A129251CAE59002605E2 /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelAPI.swift */; };
+		E195A12B251CAEA3002605E2 /* QueryComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A12A251CAEA3002605E2 /* QueryComics.swift */; };
+		E195A12C251CAEA3002605E2 /* QueryComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A12A251CAEA3002605E2 /* QueryComics.swift */; };
+		E195A12D251CAEA3002605E2 /* QueryComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A12A251CAEA3002605E2 /* QueryComics.swift */; };
+		E195A12F251CAF18002605E2 /* Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4AE244824730032A75F /* Marvel.swift */; };
+		E195A132251CAF2A002605E2 /* GitHubAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A131251CAF2A002605E2 /* GitHubAPIBase.swift */; };
+		E195A133251CAF2A002605E2 /* GitHubAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A131251CAF2A002605E2 /* GitHubAPIBase.swift */; };
+		E195A134251CAF2A002605E2 /* GitHubAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A131251CAF2A002605E2 /* GitHubAPIBase.swift */; };
+		E195A136251CAF4F002605E2 /* QueryUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A135251CAF4F002605E2 /* QueryUsers.swift */; };
+		E195A137251CAF4F002605E2 /* QueryUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A135251CAF4F002605E2 /* QueryUsers.swift */; };
+		E195A138251CAF4F002605E2 /* QueryUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A135251CAF4F002605E2 /* QueryUsers.swift */; };
+		E195A13C251CAF8D002605E2 /* MockAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A13B251CAF8D002605E2 /* MockAPIBase.swift */; };
+		E195A13D251CAF8D002605E2 /* MockAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A13B251CAF8D002605E2 /* MockAPIBase.swift */; };
+		E195A13E251CAF8D002605E2 /* MockAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A13B251CAF8D002605E2 /* MockAPIBase.swift */; };
+		E195A140251CAFD2002605E2 /* FirstLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A13F251CAFD2002605E2 /* FirstLogin.swift */; };
+		E195A141251CAFD2002605E2 /* FirstLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A13F251CAFD2002605E2 /* FirstLogin.swift */; };
+		E195A142251CAFD2002605E2 /* FirstLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A13F251CAFD2002605E2 /* FirstLogin.swift */; };
+		E195A144251CAFF2002605E2 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A143251CAFF2002605E2 /* Login.swift */; };
+		E195A145251CAFF2002605E2 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A143251CAFF2002605E2 /* Login.swift */; };
+		E195A146251CAFF2002605E2 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A143251CAFF2002605E2 /* Login.swift */; };
+		E195A148251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
+		E195A149251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
+		E195A14A251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
 		E1F215122448338300F2CECD /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelResponse.swift */; };
-		E1F2151624485CE700F2CECD /* MarvelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelApi.swift */; };
+		E1F2151624485CE700F2CECD /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,11 +144,23 @@
 		E1941D2E2511E99500106881 /* RefreshTokenResponseFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RefreshTokenResponseFailure.json; sourceTree = "<group>"; };
 		E1941D312511F48000106881 /* LoginResponseSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginResponseSuccess.json; sourceTree = "<group>"; };
 		E1941D342511F4B100106881 /* LoginResponseFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginResponseFailure.json; sourceTree = "<group>"; };
-		E1941D372511F5A200106881 /* MockApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApi.swift; sourceTree = "<group>"; };
+		E1941D372511F5A200106881 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
 		E1941D3A2511F97000106881 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		E1941D3D2512076B00106881 /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
+		E195A103251C9836002605E2 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		E195A107251C9F09002605E2 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
+		E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GitHubUsersResponseSuccess.json; sourceTree = "<group>"; };
+		E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GitHubUserResponseFailure.json; sourceTree = "<group>"; };
+		E195A125251CAE05002605E2 /* MarvelAPIBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIBase.swift; sourceTree = "<group>"; };
+		E195A12A251CAEA3002605E2 /* QueryComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryComics.swift; sourceTree = "<group>"; };
+		E195A131251CAF2A002605E2 /* GitHubAPIBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIBase.swift; sourceTree = "<group>"; };
+		E195A135251CAF4F002605E2 /* QueryUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryUsers.swift; sourceTree = "<group>"; };
+		E195A13B251CAF8D002605E2 /* MockAPIBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIBase.swift; sourceTree = "<group>"; };
+		E195A13F251CAFD2002605E2 /* FirstLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLogin.swift; sourceTree = "<group>"; };
+		E195A143251CAFF2002605E2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E195A147251CB00B002605E2 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		E1F215112448338300F2CECD /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
-		E1F2151524485CE700F2CECD /* MarvelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApi.swift; sourceTree = "<group>"; };
+		E1F2151524485CE700F2CECD /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,27 +240,119 @@
 				E114F4A324481C7B0032A75F /* Assets.xcassets */,
 				E114F4A524481C7B0032A75F /* LaunchScreen.storyboard */,
 				E114F4A824481C7B0032A75F /* Info.plist */,
-				E1751ED2250F178F00F08683 /* ReachabilityManager.swift */,
-				E1941D282510C30500106881 /* MultiTargetType.swift */,
-				E114F4B424482D080032A75F /* ConnectionService.swift */,
-				716608F6244C163300738ADB /* CustomMoyaProvider.swift */,
-				E1100936251B18AD00004025 /* RefreshTokenService.swift */,
-				E1F2151524485CE700F2CECD /* MarvelApi.swift */,
-				E1941D372511F5A200106881 /* MockApi.swift */,
-				E114F4AE244824730032A75F /* Marvel.swift */,
-				E1F215112448338300F2CECD /* MarvelResponse.swift */,
-				E1941D3A2511F97000106881 /* MockResponse.swift */,
-				E114F4B2244829CF0032A75F /* String+md5.swift */,
-				E1941D252510735600106881 /* String+Localized.swift */,
 				E1941D3D2512076B00106881 /* TokenData.swift */,
-				E1751ECD250F178A00F08683 /* MarvelResponseSuccess.json */,
-				E1751ECC250F178A00F08683 /* MarvelResponseFailure.json */,
+				E195A123251CAA01002605E2 /* Services */,
+				E195A122251CA9CB002605E2 /* API Requests */,
+				E195A120251CA95A002605E2 /* Models */,
+				E195A11F251CA94C002605E2 /* Extensions */,
+				E195A10C251CA767002605E2 /* MarvelResponseSample */,
+				E195A10B251CA757002605E2 /* MockResponseSample */,
+				E195A11D251CA924002605E2 /* GitHubResponseSample */,
+			);
+			path = MoyaDemo;
+			sourceTree = "<group>";
+		};
+		E195A10B251CA757002605E2 /* MockResponseSample */ = {
+			isa = PBXGroup;
+			children = (
 				E1941D312511F48000106881 /* LoginResponseSuccess.json */,
 				E1941D342511F4B100106881 /* LoginResponseFailure.json */,
 				E1941D2B2511E8D200106881 /* RefreshTokenResponseSuccess.json */,
 				E1941D2E2511E99500106881 /* RefreshTokenResponseFailure.json */,
 			);
-			path = MoyaDemo;
+			path = MockResponseSample;
+			sourceTree = "<group>";
+		};
+		E195A10C251CA767002605E2 /* MarvelResponseSample */ = {
+			isa = PBXGroup;
+			children = (
+				E1751ECD250F178A00F08683 /* MarvelResponseSuccess.json */,
+				E1751ECC250F178A00F08683 /* MarvelResponseFailure.json */,
+			);
+			path = MarvelResponseSample;
+			sourceTree = "<group>";
+		};
+		E195A11D251CA924002605E2 /* GitHubResponseSample */ = {
+			isa = PBXGroup;
+			children = (
+				E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */,
+				E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */,
+			);
+			path = GitHubResponseSample;
+			sourceTree = "<group>";
+		};
+		E195A11F251CA94C002605E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E114F4B2244829CF0032A75F /* String+md5.swift */,
+				E1941D252510735600106881 /* String+Localized.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E195A120251CA95A002605E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1F215112448338300F2CECD /* MarvelResponse.swift */,
+				E195A107251C9F09002605E2 /* GitHubResponse.swift */,
+				E1941D3A2511F97000106881 /* MockResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E195A122251CA9CB002605E2 /* API Requests */ = {
+			isa = PBXGroup;
+			children = (
+				E1941D282510C30500106881 /* MultiTargetType.swift */,
+				716608F6244C163300738ADB /* CustomMoyaProvider.swift */,
+				E195A124251CADE6002605E2 /* Marvel */,
+				E195A12E251CAF01002605E2 /* GitHub */,
+				E195A139251CAF75002605E2 /* Mock */,
+			);
+			path = "API Requests";
+			sourceTree = "<group>";
+		};
+		E195A123251CAA01002605E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E1751ED2250F178F00F08683 /* ReachabilityManager.swift */,
+				E114F4B424482D080032A75F /* ConnectionService.swift */,
+				E1100936251B18AD00004025 /* RefreshTokenService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E195A124251CADE6002605E2 /* Marvel */ = {
+			isa = PBXGroup;
+			children = (
+				E114F4AE244824730032A75F /* Marvel.swift */,
+				E195A125251CAE05002605E2 /* MarvelAPIBase.swift */,
+				E1F2151524485CE700F2CECD /* MarvelAPI.swift */,
+				E195A12A251CAEA3002605E2 /* QueryComics.swift */,
+			);
+			path = Marvel;
+			sourceTree = "<group>";
+		};
+		E195A12E251CAF01002605E2 /* GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				E195A131251CAF2A002605E2 /* GitHubAPIBase.swift */,
+				E195A103251C9836002605E2 /* GitHubAPI.swift */,
+				E195A135251CAF4F002605E2 /* QueryUsers.swift */,
+			);
+			path = GitHub;
+			sourceTree = "<group>";
+		};
+		E195A139251CAF75002605E2 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E195A13B251CAF8D002605E2 /* MockAPIBase.swift */,
+				E1941D372511F5A200106881 /* MockAPI.swift */,
+				E195A13F251CAFD2002605E2 /* FirstLogin.swift */,
+				E195A143251CAFF2002605E2 /* Login.swift */,
+				E195A147251CB00B002605E2 /* RefreshToken.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		EDEE6FF7C595BE6916640715 /* Pods */ = {
@@ -327,6 +469,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E195A114251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */,
+				E195A11C251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,8 +478,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E195A11A251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */,
 				E1751ED0250F178A00F08683 /* MarvelResponseSuccess.json in Resources */,
 				E114F4A724481C7B0032A75F /* LaunchScreen.storyboard in Resources */,
+				E195A112251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */,
 				E114F4A424481C7B0032A75F /* Assets.xcassets in Resources */,
 				E1941D352511F4B100106881 /* LoginResponseFailure.json in Resources */,
 				E114F4A224481C770032A75F /* Main.storyboard in Resources */,
@@ -350,8 +496,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E195A11B251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */,
 				E1751ED1250F178A00F08683 /* MarvelResponseSuccess.json in Resources */,
 				E1751EC3250F172D00F08683 /* LaunchScreen.storyboard in Resources */,
+				E195A113251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */,
 				E1751EC4250F172D00F08683 /* Assets.xcassets in Resources */,
 				E1941D362511F4B100106881 /* LoginResponseFailure.json in Resources */,
 				E1751EC5250F172D00F08683 /* Main.storyboard in Resources */,
@@ -450,6 +598,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E195A12F251CAF18002605E2 /* Marvel.swift in Sources */,
+				E195A12D251CAEA3002605E2 /* QueryComics.swift in Sources */,
+				E195A129251CAE59002605E2 /* MarvelAPI.swift in Sources */,
+				E195A146251CAFF2002605E2 /* Login.swift in Sources */,
+				E195A106251C9836002605E2 /* GitHubAPI.swift in Sources */,
+				E195A138251CAF4F002605E2 /* QueryUsers.swift in Sources */,
+				E195A10A251C9F09002605E2 /* GitHubResponse.swift in Sources */,
+				E195A128251CAE05002605E2 /* MarvelAPIBase.swift in Sources */,
+				E195A142251CAFD2002605E2 /* FirstLogin.swift in Sources */,
+				E195A14A251CB00B002605E2 /* RefreshToken.swift in Sources */,
+				E195A13E251CAF8D002605E2 /* MockAPIBase.swift in Sources */,
+				E195A134251CAF2A002605E2 /* GitHubAPIBase.swift in Sources */,
 				E1100941251B46A500004025 /* MoyaDemo_mockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,11 +619,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E114F49F24481C770032A75F /* ViewController.swift in Sources */,
-				E1F2151624485CE700F2CECD /* MarvelApi.swift in Sources */,
+				E1F2151624485CE700F2CECD /* MarvelAPI.swift in Sources */,
 				E1F215122448338300F2CECD /* MarvelResponse.swift in Sources */,
+				E195A136251CAF4F002605E2 /* QueryUsers.swift in Sources */,
+				E195A126251CAE05002605E2 /* MarvelAPIBase.swift in Sources */,
+				E195A12B251CAEA3002605E2 /* QueryComics.swift in Sources */,
+				E195A104251C9836002605E2 /* GitHubAPI.swift in Sources */,
 				716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */,
+				E195A108251C9F09002605E2 /* GitHubResponse.swift in Sources */,
+				E195A148251CB00B002605E2 /* RefreshToken.swift in Sources */,
+				E195A13C251CAF8D002605E2 /* MockAPIBase.swift in Sources */,
 				E1941D292510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1100937251B18AD00004025 /* RefreshTokenService.swift in Sources */,
+				E195A132251CAF2A002605E2 /* GitHubAPIBase.swift in Sources */,
 				E1751ED3250F178F00F08683 /* ReachabilityManager.swift in Sources */,
 				E114F49B24481C770032A75F /* AppDelegate.swift in Sources */,
 				E114F4AF244824730032A75F /* Marvel.swift in Sources */,
@@ -471,7 +639,9 @@
 				E114F4B524482D080032A75F /* ConnectionService.swift in Sources */,
 				E1941D3E2512076B00106881 /* TokenData.swift in Sources */,
 				E1941D262510735600106881 /* String+Localized.swift in Sources */,
-				E1941D382511F5A200106881 /* MockApi.swift in Sources */,
+				E195A140251CAFD2002605E2 /* FirstLogin.swift in Sources */,
+				E195A144251CAFF2002605E2 /* Login.swift in Sources */,
+				E1941D382511F5A200106881 /* MockAPI.swift in Sources */,
 				E1941D3B2511F97000106881 /* MockResponse.swift in Sources */,
 				E114F49D24481C770032A75F /* SceneDelegate.swift in Sources */,
 			);
@@ -482,11 +652,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1751EB7250F172D00F08683 /* ViewController.swift in Sources */,
-				E1751EB8250F172D00F08683 /* MarvelApi.swift in Sources */,
+				E1751EB8250F172D00F08683 /* MarvelAPI.swift in Sources */,
 				E1751EB9250F172D00F08683 /* MarvelResponse.swift in Sources */,
+				E195A137251CAF4F002605E2 /* QueryUsers.swift in Sources */,
+				E195A127251CAE05002605E2 /* MarvelAPIBase.swift in Sources */,
+				E195A12C251CAEA3002605E2 /* QueryComics.swift in Sources */,
+				E195A105251C9836002605E2 /* GitHubAPI.swift in Sources */,
 				E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */,
+				E195A109251C9F09002605E2 /* GitHubResponse.swift in Sources */,
+				E195A149251CB00B002605E2 /* RefreshToken.swift in Sources */,
+				E195A13D251CAF8D002605E2 /* MockAPIBase.swift in Sources */,
 				E1941D2A2510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1100938251B18AD00004025 /* RefreshTokenService.swift in Sources */,
+				E195A133251CAF2A002605E2 /* GitHubAPIBase.swift in Sources */,
 				E1751ED4250F178F00F08683 /* ReachabilityManager.swift in Sources */,
 				E1751EBB250F172D00F08683 /* AppDelegate.swift in Sources */,
 				E1751EBC250F172D00F08683 /* Marvel.swift in Sources */,
@@ -494,7 +672,9 @@
 				E1751EBE250F172D00F08683 /* ConnectionService.swift in Sources */,
 				E1941D3F2512076B00106881 /* TokenData.swift in Sources */,
 				E1941D272510735600106881 /* String+Localized.swift in Sources */,
-				E1941D392511F5A200106881 /* MockApi.swift in Sources */,
+				E195A141251CAFD2002605E2 /* FirstLogin.swift in Sources */,
+				E195A145251CAFF2002605E2 /* Login.swift in Sources */,
+				E1941D392511F5A200106881 /* MockAPI.swift in Sources */,
 				E1941D3C2511F97000106881 /* MockResponse.swift in Sources */,
 				E1751EBF250F172D00F08683 /* SceneDelegate.swift in Sources */,
 			);

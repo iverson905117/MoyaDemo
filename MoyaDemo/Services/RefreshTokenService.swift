@@ -18,7 +18,7 @@ class RefreshTokenService {
         completions.append(completion)
         
         print("Start refreshTokenRequest....")
-        ConnectionService.shared.requestDecoded(MockApi.RefreshToken(TokenData.refreshToken)) { [unowned self] result in
+        ConnectionService.shared.requestDecoded(MockAPI.RefreshToken(TokenData.refreshToken)) { [unowned self] result in
             print("Finish refreshTokenRequest...")
             self.queue.async {
                 self.lock.lock()

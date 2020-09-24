@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func firstlogin(_ sender: Any) {
-        connectionService.rxRequest(MockApi.FirstLogin(account: "VicKang", password: "123456"))
+        connectionService.rxRequest(MockAPI.FirstLogin(account: "VicKang", password: "123456"))
             .subscribe(onSuccess: { response in
                 print(response)
                 TokenData.updateToken(token: response.token, tokenExpiredIn: response.tokenExpireIn, refreshToken: response.refreshToken)
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginByToken(_ sender: Any) {
-        connectionService.rxRequest(MockApi.Login(token: TokenData.token))
+        connectionService.rxRequest(MockAPI.Login(token: TokenData.token))
             .subscribe(onSuccess: { response in
                 print(response)
                 TokenData.updateToken(token: nil, tokenExpiredIn: nil, refreshToken: response.refreshToken)
@@ -98,7 +98,7 @@ class ViewController: UIViewController {
     // MARK: -
     func queryMarvel_MoyaProvider() {
         print(#function)
-        connectionService.request(MarvelApi.QueryComics(), completion: { result in
+        connectionService.request(MarvelAPI.QueryComics(), completion: { result in
             switch result {
             case .success(let model):
                 print(model)
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
     
     func queryMarvel_MoyaProvider_rx() {
         print(#function)
-        connectionService.rxRequest(MarvelApi.QueryComics())
+        connectionService.rxRequest(MarvelAPI.QueryComics())
             .subscribe(onSuccess: { marvelModel in
                 print(marvelModel)
             }, onError: { error in
@@ -122,7 +122,7 @@ class ViewController: UIViewController {
     // MARK: -
     func queryMarvel_CustomProvider() {
         print(#function)
-        connectionService.requestDecoded(MarvelApi.QueryComics(), completion: { result in
+        connectionService.requestDecoded(MarvelAPI.QueryComics(), completion: { result in
             switch result {
             case .success(let model):
                 print(model)
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
     
     func queryMarvel_CustomProvider_rx() {
         print(#function)
-        connectionService.rxRequestDecoded(MarvelApi.QueryComics())
+        connectionService.rxRequestDecoded(MarvelAPI.QueryComics())
             .subscribe(onSuccess: { model in
                 print(model)
             }, onError: { error in

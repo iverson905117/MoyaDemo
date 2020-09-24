@@ -191,7 +191,7 @@ extension ConnectionService {
     func refreshTokenRequest() -> Observable<RefreshTokenResult> {
         return Observable<RefreshTokenResult>.create { [unowned self] observer -> Disposable in
             print("Start refreshTokenRequest....")
-            self.rxRequest(MockApi.RefreshToken(TokenData.refreshToken))
+            self.rxRequest(MockAPI.RefreshToken(TokenData.refreshToken))
                 .asObservable()
                 .map { response -> RefreshTokenResult in
                     TokenData.token = response.token
