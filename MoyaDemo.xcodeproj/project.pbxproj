@@ -65,9 +65,6 @@
 		E195A108251C9F09002605E2 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A107251C9F09002605E2 /* GitHubResponse.swift */; };
 		E195A109251C9F09002605E2 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A107251C9F09002605E2 /* GitHubResponse.swift */; };
 		E195A10A251C9F09002605E2 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A107251C9F09002605E2 /* GitHubResponse.swift */; };
-		E195A112251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */; };
-		E195A113251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */; };
-		E195A114251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */; };
 		E195A11A251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */; };
 		E195A11B251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */; };
 		E195A11C251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */; };
@@ -97,6 +94,8 @@
 		E195A148251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
 		E195A149251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
 		E195A14A251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
+		E197F3392521B152002CC032 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E197F3382521B152002CC032 /* GitHubUsersResponseSuccess.json */; };
+		E197F33A2521B152002CC032 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E197F3382521B152002CC032 /* GitHubUsersResponseSuccess.json */; };
 		E1F215122448338300F2CECD /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelResponse.swift */; };
 		E1F2151624485CE700F2CECD /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelAPI.swift */; };
 /* End PBXBuildFile section */
@@ -149,7 +148,6 @@
 		E1941D3D2512076B00106881 /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
 		E195A103251C9836002605E2 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		E195A107251C9F09002605E2 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
-		E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GitHubUsersResponseSuccess.json; sourceTree = "<group>"; };
 		E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GitHubUserResponseFailure.json; sourceTree = "<group>"; };
 		E195A125251CAE05002605E2 /* MarvelAPIBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIBase.swift; sourceTree = "<group>"; };
 		E195A12A251CAEA3002605E2 /* QueryComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryComics.swift; sourceTree = "<group>"; };
@@ -159,6 +157,7 @@
 		E195A13F251CAFD2002605E2 /* FirstLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLogin.swift; sourceTree = "<group>"; };
 		E195A143251CAFF2002605E2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E195A147251CB00B002605E2 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
+		E197F3382521B152002CC032 /* GitHubUsersResponseSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GitHubUsersResponseSuccess.json; sourceTree = "<group>"; };
 		E1F215112448338300F2CECD /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
 		E1F2151524485CE700F2CECD /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,10 +243,8 @@
 				E195A123251CAA01002605E2 /* Services */,
 				E195A122251CA9CB002605E2 /* API Requests */,
 				E195A120251CA95A002605E2 /* Models */,
+				E197F3342521B041002CC032 /* API Mock */,
 				E195A11F251CA94C002605E2 /* Extensions */,
-				E195A10C251CA767002605E2 /* MarvelResponseSample */,
-				E195A10B251CA757002605E2 /* MockResponseSample */,
-				E195A11D251CA924002605E2 /* GitHubResponseSample */,
 			);
 			path = MoyaDemo;
 			sourceTree = "<group>";
@@ -275,7 +272,7 @@
 		E195A11D251CA924002605E2 /* GitHubResponseSample */ = {
 			isa = PBXGroup;
 			children = (
-				E195A111251CA7EA002605E2 /* GitHubUsersResponseSuccess.json */,
+				E197F3382521B152002CC032 /* GitHubUsersResponseSuccess.json */,
 				E195A119251CA91A002605E2 /* GitHubUserResponseFailure.json */,
 			);
 			path = GitHubResponseSample;
@@ -353,6 +350,16 @@
 				E195A147251CB00B002605E2 /* RefreshToken.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		E197F3342521B041002CC032 /* API Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E195A10C251CA767002605E2 /* MarvelResponseSample */,
+				E195A10B251CA757002605E2 /* MockResponseSample */,
+				E195A11D251CA924002605E2 /* GitHubResponseSample */,
+			);
+			path = "API Mock";
 			sourceTree = "<group>";
 		};
 		EDEE6FF7C595BE6916640715 /* Pods */ = {
@@ -469,7 +476,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E195A114251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */,
 				E195A11C251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,7 +487,7 @@
 				E195A11A251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */,
 				E1751ED0250F178A00F08683 /* MarvelResponseSuccess.json in Resources */,
 				E114F4A724481C7B0032A75F /* LaunchScreen.storyboard in Resources */,
-				E195A112251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */,
+				E197F3392521B152002CC032 /* GitHubUsersResponseSuccess.json in Resources */,
 				E114F4A424481C7B0032A75F /* Assets.xcassets in Resources */,
 				E1941D352511F4B100106881 /* LoginResponseFailure.json in Resources */,
 				E114F4A224481C770032A75F /* Main.storyboard in Resources */,
@@ -499,7 +505,7 @@
 				E195A11B251CA91A002605E2 /* GitHubUserResponseFailure.json in Resources */,
 				E1751ED1250F178A00F08683 /* MarvelResponseSuccess.json in Resources */,
 				E1751EC3250F172D00F08683 /* LaunchScreen.storyboard in Resources */,
-				E195A113251CA7EA002605E2 /* GitHubUsersResponseSuccess.json in Resources */,
+				E197F33A2521B152002CC032 /* GitHubUsersResponseSuccess.json in Resources */,
 				E1751EC4250F172D00F08683 /* Assets.xcassets in Resources */,
 				E1941D362511F4B100106881 /* LoginResponseFailure.json in Resources */,
 				E1751EC5250F172D00F08683 /* Main.storyboard in Resources */,

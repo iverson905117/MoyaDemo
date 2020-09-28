@@ -10,8 +10,6 @@ import Foundation
 
 struct LoginResponse: BaseResponse {
     var code: Int
-    var status: String
-    var copyright: String
     let token: String
     let refreshToken: String
     let tokenExpireIn: String
@@ -19,8 +17,6 @@ struct LoginResponse: BaseResponse {
 
 struct RefreshTokenResponse: BaseResponse {
     var code: Int
-    var status: String
-    var copyright: String
     let token: String
     let tokenExpireIn: String
 }

@@ -1,7 +1,5 @@
 {
     "code": 401,
-    "status": "Fail",
-    "copyright": "© 2020 MARVEL",
     "token": "",
     "refreshToken": "",
     "tokenExpireIn": ""

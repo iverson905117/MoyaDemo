@@ -12,7 +12,7 @@ import Moya
 extension GitHubAPI {
     struct QueryUsers: GitHubAPIBase {
         
-        typealias ResponseType = MarvelResponse
+        typealias ResponseType = UserResponse
         
         var parameters: [String : Any]?
         
@@ -44,16 +44,17 @@ extension GitHubAPI {
         }
         
         var successFileName: String {
-            return ""
+            return "GitHubUsersResponseSuccess"
         }
         
         var failureFileName: String {
-            return ""
+            return "GitHubUserResponseFailure"
         }
         
         // MARK: RetryableTargetType
         var retryCount: Int = 5
         
+        // MARK: Initializer
         init(user: String) {
             self.path = "/users/" + "\(user)"
         }

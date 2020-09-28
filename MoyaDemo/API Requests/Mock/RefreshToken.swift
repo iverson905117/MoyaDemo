@@ -30,7 +30,7 @@ extension MockAPI {
             return "RefreshTokenResponseFailure"
         }
         
-        var retryCount: Int = 2
+        var retryCount: Int = 0
         
         var authorizationType: AuthorizationType? {
             return .none

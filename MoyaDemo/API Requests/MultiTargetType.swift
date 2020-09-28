@@ -9,6 +9,12 @@
 import Foundation
 import Moya
 
+protocol MultiTargetType: TargetType, DecodableTargetType, MockableTargetType, RetryableTargetType, AccessTokenAuthorizable {}
+
+protocol DecodableTargetType {
+    associatedtype ResponseType: BaseResponse
+}
+
 protocol RetryableTargetType {
     var retryCount: Int { get set }
 }
@@ -21,20 +27,20 @@ protocol MockableTargetType {
 }
 extension MockableTargetType {
     var successMockData: Data {
-        let path = Bundle.main.path(forResource: successFileName, ofType: "json")
-        return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
+        if let path = Bundle.main.path(forResource: successFileName, ofType: "json") {
+            return FileHandle(forReadingAtPath: path)!.readDataToEndOfFile()
+        } else {
+            return Data()
+        }
     }
     var failureMockData: Data {
-        let path = Bundle.main.path(forResource: failureFileName, ofType: "json")
-        return FileHandle(forReadingAtPath: path!)!.readDataToEndOfFile()
+        if let path = Bundle.main.path(forResource: failureFileName, ofType: "json") {
+            return FileHandle(forReadingAtPath: path)!.readDataToEndOfFile()
+        } else {
+            return Data()
+        }
     }
     var mockData: Data {
         return isStubSuccess ? successMockData : failureMockData
     }
 }
-
-protocol DecodableTargetType {
-    associatedtype ResponseType: BaseResponse
-}
-
-protocol MultiTargetType: TargetType, DecodableTargetType, MockableTargetType, RetryableTargetType, AccessTokenAuthorizable {}

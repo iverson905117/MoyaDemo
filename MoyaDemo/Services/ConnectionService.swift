@@ -95,11 +95,11 @@ extension ConnectionService {
             .retryWhen({ error in
                 return error.enumerated().flatMap { (attempt, error) -> Observable<Int> in
                     guard request.retryCount > attempt + 1 else {
-                        print("API failure retry max count...")
+                        print("API failure retry max count(\(attempt + 1)...")
                         throw error
                     }
                     // Delay retry as seconds
-                    print("API failure retry \(attempt)...")
+                    print("API failure retry \(attempt + 1)...")
                     return Observable<Int>
                         .timer(.seconds(1), scheduler: MainScheduler.instance)
                         .take(1)
@@ -107,6 +107,14 @@ extension ConnectionService {
             })
             .catchError { error in
                 print(error)
+                do {
+                    let errorResponse = error as? Moya.MoyaError
+                    if let body = try errorResponse?.response?.mapJSON() {
+                         print(body)
+                    }
+                } catch {
+                    print(error)
+                }
                 return .error(error)
             }
     }
@@ -125,7 +133,7 @@ extension ConnectionService {
             .flatMap { response -> Single<TargetType.ResponseType> in
                 // (vic) test
                 if refreshTokenPassFlag {
-                    print("Retry marvel api success...")
+                    print("Fake retry marvel api success...")
                     return .just(response)
                 }
                 
@@ -241,7 +249,7 @@ extension ConnectionService {
                 case .tokenExpired:
                     // (vic) test
                     if refreshTokenPassFlag {
-                        print("Retry marvel api success...")
+                        print("Fake retry marvel api success...")
                         completion(.success(response))
                     } else {
                         print("Token expired...")
@@ -280,8 +288,8 @@ extension ConnectionService {
                         switch result {
                         case .success(let response):
                             completion(.success(response))
-                        default:
-                            break
+                        case .failure(let error):
+                            completion(.failure(error))
                         }
                     })
                 } else {

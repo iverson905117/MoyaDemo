@@ -30,10 +30,15 @@ class ViewController: UIViewController {
 //        queryMarvel_MoyaProvider_rx()
         
 //        queryMarvel_CustomProvider()
-        queryMarvel_CustomProvider_rx()
+//        queryMarvel_CustomProvider_rx()
+        
+        queryGitHubUsers()
     }
     
+    // MARK: - Mock
+    
     @IBAction func firstlogin(_ sender: Any) {
+        print(#function)
         connectionService.rxRequest(MockAPI.FirstLogin(account: "VicKang", password: "123456"))
             .subscribe(onSuccess: { response in
                 print(response)
@@ -45,6 +50,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginByToken(_ sender: Any) {
+        print(#function)
         connectionService.rxRequest(MockAPI.Login(token: TokenData.token))
             .subscribe(onSuccess: { response in
                 print(response)
@@ -56,12 +62,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
-        print("Logout")
+        print(#function)
         TokenData.removeData()
         refreshTokenPassFlag = false
     }
     
-    // MARK: -
+    // MARK: - Marvel
+    
+    // MARK: Basic usage
     func queryMarvelComics() {
         print(#function)
         let provider = MoyaProvider<Marvel>()
@@ -95,7 +103,7 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    // MARK: -
+    // MARK: Moya provider
     func queryMarvel_MoyaProvider() {
         print(#function)
         connectionService.request(MarvelAPI.QueryComics(), completion: { result in
@@ -119,7 +127,7 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    // MARK: -
+    // MARK: Custom provider
     func queryMarvel_CustomProvider() {
         print(#function)
         connectionService.requestDecoded(MarvelAPI.QueryComics(), completion: { result in
@@ -138,6 +146,20 @@ class ViewController: UIViewController {
             .subscribe(onSuccess: { model in
                 print(model)
             }, onError: { error in
+                print(error.localizedDescription)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    
+    // MARK: - GitHub
+    func queryGitHubUsers() {
+        print(#function)
+        connectionService.rxRequestDecoded(GitHubAPI.QueryUsers(user: "iverson905117"))
+            .subscribe(onSuccess: { model in
+                print(model)
+            }, onError: { error in
+//                print(error)
                 print(error.localizedDescription)
             })
             .disposed(by: disposeBag)

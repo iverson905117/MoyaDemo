@@ -11,13 +11,16 @@ import XCTest
 
 class MoyaDemo_mockTests: XCTestCase {
     
-    let 
     
     override func setUp() {
         
     }
     
-    func testMarvelApi() {
+    override  func tearDown() {
         
+    }
+    
+    func testMarvelApi() {
+    
     }
 }
