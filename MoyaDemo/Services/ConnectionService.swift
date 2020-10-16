@@ -19,10 +19,10 @@ enum TokenError: Error {
     
     init(_ code: Int) {
         switch code {
-        case 10010: self = .tokenExpired
-        case 10011: self = .refreshTokenExpired
-        case 10020: self = .tokenError
-        default:    self = .none
+        case 10010: self = .tokenExpired        // 重取 token
+        case 10011: self = .refreshTokenExpired // 登出
+        case 10020: self = .tokenError          // 登出
+        default:    self = .none                // pass
         }
     }
 }
@@ -50,7 +50,7 @@ class ConnectionService {
         // Setup session
         let configuration = URLSessionConfiguration.default
         configuration.headers = .default
-        configuration.timeoutIntervalForRequest = 10 // as seconds
+        configuration.timeoutIntervalForRequest = 10 // timeout as seconds
         configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         
         // SSL pinning ServerTrustPolicyManager ...
@@ -67,15 +67,25 @@ class ConnectionService {
             #endif
         }
         
-        // Setup provider
+        let customEndpointClosure = { (target: TargetType) -> Endpoint in
+            return Endpoint(url: target.baseURL.absoluteString + target.path,
+                            sampleResponseClosure: { .networkResponse(200 , target.sampleData) }, // statusCode on stub
+                            method: target.method,
+                            task: target.task,
+                            httpHeaderFields: target.headers)
+        }
         
         // Access Token Auth pluging
+        // 需設定 target 的 authorizationType
         let accessTokenPlugin = AccessTokenPlugin(tokenClosure: { _ in TokenData.token })
         
-        provider = MoyaProvider(stubClosure: stubClosure,
+        // Setup provider
+        provider = MoyaProvider(endpointClosure: customEndpointClosure,
+                                stubClosure: stubClosure,
                                 plugins: [accessTokenPlugin])
         
-        customProvider = CustomMoyaProvider(stubClosure: stubClosure,
+        customProvider = CustomMoyaProvider(endpointClosure: customEndpointClosure,
+                                            stubClosure: stubClosure,
                                             session: session,
                                             plugins: [accessTokenPlugin])
     }
@@ -95,7 +105,7 @@ extension ConnectionService {
             .retryWhen({ error in
                 return error.enumerated().flatMap { (attempt, error) -> Observable<Int> in
                     guard request.retryCount > attempt + 1 else {
-                        print("API failure retry max count(\(attempt + 1)...")
+                        print("API failure retry \(attempt + 1)...max count")
                         throw error
                     }
                     // Delay retry as seconds
@@ -106,14 +116,11 @@ extension ConnectionService {
                 }
             })
             .catchError { error in
-                print(error)
-                do {
-                    let errorResponse = error as? Moya.MoyaError
-                    if let body = try errorResponse?.response?.mapJSON() {
-                         print(body)
-                    }
-                } catch {
-                    print(error)
+                // can't decode
+                // api failure
+                if let error = error as? Moya.MoyaError, let body = try? error.response?.mapJSON(), let statusCode = error.response?.statusCode {
+                    print("error response statusCode: \(statusCode)")
+                    print("error response body: \(body)")
                 }
                 return .error(error)
             }
@@ -121,7 +128,7 @@ extension ConnectionService {
     
     func request<TargetType: MultiTargetType>(_ target: TargetType, completion: ((_ result: Result<TargetType.ResponseType, Error>) -> Void)? = nil) {
         
-        print(target.path)
+        print("===== api: \(target.path) =======")
         
         guard reachabilityManager.isReachable else {
             print("No network...")
@@ -132,11 +139,11 @@ extension ConnectionService {
         rxBaseRequest(target)
             .flatMap { response -> Single<TargetType.ResponseType> in
                 // (vic) test
+                print("refreshTokenPassFlag: \(refreshTokenPassFlag)")
                 if refreshTokenPassFlag {
-                    print("Fake retry marvel api success...")
+                    print("Fake retry api success...")
                     return .just(response)
                 }
-                
                 switch TokenError(response.code) {
                 case .none:
                     return .just(response)
@@ -146,7 +153,8 @@ extension ConnectionService {
         }
         .retryWhen { (rxError: Observable<TokenError>) -> Observable<()> in
             rxError.flatMap { error -> Observable<()> in
-                if error == .tokenExpired {
+                switch error {
+                case .tokenExpired:
                     return self.refreshTokenObservable.flatMapLatest({ result -> Observable<()> in
                         switch result {
                         case .success:
@@ -160,8 +168,9 @@ extension ConnectionService {
                             print(error.localizedDescription)
                             TokenData.removeData()
                             throw error
-                        }})
-                } else {
+                        }
+                    })
+                default:
                     print("Logout...")
                     print(error.localizedDescription)
                     TokenData.removeData()
@@ -190,10 +199,13 @@ extension ConnectionService {
             return Disposables.create()
         }
     }
-    
-    // MARK: Refresh token
+}
+
+// MARK: Rx Refresh token
+extension ConnectionService {
     enum RefreshTokenResult {
-        case success, failure
+        case success
+        case failure
     }
     
     func refreshTokenRequest() -> Observable<RefreshTokenResult> {
@@ -230,7 +242,7 @@ extension ConnectionService {
     @discardableResult
     func requestDecoded<T: MultiTargetType>(_ target: T, completion: @escaping (_ result: Result<T.ResponseType, Error>) -> Void) -> Cancellable? {
         
-        print("api: \(target.path)")
+        print("===== api: \(target.path) =======")
         
         guard reachabilityManager.isReachable else {
             completion(.failure(ConnectionServiceError.noNetwork))
@@ -249,7 +261,8 @@ extension ConnectionService {
                 case .tokenExpired:
                     // (vic) test
                     if refreshTokenPassFlag {
-                        print("Fake retry marvel api success...")
+                        print("refreshTokenPassFlag: \(refreshTokenPassFlag)")
+                        print("Fake retry api success...")
                         completion(.success(response))
                     } else {
                         print("Token expired...")
@@ -259,14 +272,7 @@ extension ConnectionService {
                                 print("Refresh token success...")
                                 print("Retry request...")
                                 refreshTokenPassFlag = true // (vic) test
-                                self.requestDecoded(target, completion: { result in
-                                    switch result {
-                                    case .success(let response):
-                                        completion(.success(response))
-                                    case .failure(let error):
-                                        completion(.failure(error))
-                                    }
-                                })
+                                self.requestDecoded(target, completion: completion)
                             case .failure(let error):
                                 print("Refresh token fail...")
                                 completion(.failure(error))
@@ -284,16 +290,13 @@ extension ConnectionService {
                     print("API failure retry...")
                     var target = target
                     target.retryCount -= 1
-                    self.requestDecoded(target, completion: { result in
-                        switch result {
-                        case .success(let response):
-                            completion(.success(response))
-                        case .failure(let error):
-                            completion(.failure(error))
-                        }
-                    })
+                    self.requestDecoded(target, completion: completion)
                 } else {
                     print("API failure retry max count...")
+                    if let error = error as? Moya.MoyaError, let body = try? error.response?.mapJSON(), let statusCode = error.response?.statusCode {
+                        print("error response statusCode: \(statusCode)")
+                        print("error response body: \(body)")
+                    }
                     completion(.failure(error))
                 }
             }

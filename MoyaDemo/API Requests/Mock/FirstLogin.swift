@@ -17,7 +17,7 @@ extension MockAPI {
         var parameters: [String : Any]?
         
         var stubBehavir: StubBehavior {
-            return .delayed(seconds: 1)
+            return .never
         }
         
         var isStubSuccess: Bool {

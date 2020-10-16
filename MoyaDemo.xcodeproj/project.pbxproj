@@ -94,6 +94,9 @@
 		E195A148251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
 		E195A149251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
 		E195A14A251CB00B002605E2 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195A147251CB00B002605E2 /* RefreshToken.swift */; };
+		E19723A1253849FA000DB40C /* GitHubUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19723A0253849FA000DB40C /* GitHubUserViewModel.swift */; };
+		E19723A225384A25000DB40C /* GitHubUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19723A0253849FA000DB40C /* GitHubUserViewModel.swift */; };
+		E19723A325384A28000DB40C /* GitHubUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19723A0253849FA000DB40C /* GitHubUserViewModel.swift */; };
 		E197F3392521B152002CC032 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E197F3382521B152002CC032 /* GitHubUsersResponseSuccess.json */; };
 		E197F33A2521B152002CC032 /* GitHubUsersResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E197F3382521B152002CC032 /* GitHubUsersResponseSuccess.json */; };
 		E1F215122448338300F2CECD /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelResponse.swift */; };
@@ -157,6 +160,7 @@
 		E195A13F251CAFD2002605E2 /* FirstLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLogin.swift; sourceTree = "<group>"; };
 		E195A143251CAFF2002605E2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E195A147251CB00B002605E2 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
+		E19723A0253849FA000DB40C /* GitHubUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserViewModel.swift; sourceTree = "<group>"; };
 		E197F3382521B152002CC032 /* GitHubUsersResponseSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GitHubUsersResponseSuccess.json; sourceTree = "<group>"; };
 		E1F215112448338300F2CECD /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
 		E1F2151524485CE700F2CECD /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				E195A123251CAA01002605E2 /* Services */,
 				E195A122251CA9CB002605E2 /* API Requests */,
 				E195A120251CA95A002605E2 /* Models */,
+				E197239F25384941000DB40C /* ViewModel */,
 				E197F3342521B041002CC032 /* API Mock */,
 				E195A11F251CA94C002605E2 /* Extensions */,
 			);
@@ -350,6 +355,14 @@
 				E195A147251CB00B002605E2 /* RefreshToken.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		E197239F25384941000DB40C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E19723A0253849FA000DB40C /* GitHubUserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E197F3342521B041002CC032 /* API Mock */ = {
@@ -614,6 +627,7 @@
 				E195A128251CAE05002605E2 /* MarvelAPIBase.swift in Sources */,
 				E195A142251CAFD2002605E2 /* FirstLogin.swift in Sources */,
 				E195A14A251CB00B002605E2 /* RefreshToken.swift in Sources */,
+				E19723A225384A25000DB40C /* GitHubUserViewModel.swift in Sources */,
 				E195A13E251CAF8D002605E2 /* MockAPIBase.swift in Sources */,
 				E195A134251CAF2A002605E2 /* GitHubAPIBase.swift in Sources */,
 				E1100941251B46A500004025 /* MoyaDemo_mockTests.swift in Sources */,
@@ -627,6 +641,7 @@
 				E114F49F24481C770032A75F /* ViewController.swift in Sources */,
 				E1F2151624485CE700F2CECD /* MarvelAPI.swift in Sources */,
 				E1F215122448338300F2CECD /* MarvelResponse.swift in Sources */,
+				E19723A1253849FA000DB40C /* GitHubUserViewModel.swift in Sources */,
 				E195A136251CAF4F002605E2 /* QueryUsers.swift in Sources */,
 				E195A126251CAE05002605E2 /* MarvelAPIBase.swift in Sources */,
 				E195A12B251CAEA3002605E2 /* QueryComics.swift in Sources */,
@@ -660,6 +675,7 @@
 				E1751EB7250F172D00F08683 /* ViewController.swift in Sources */,
 				E1751EB8250F172D00F08683 /* MarvelAPI.swift in Sources */,
 				E1751EB9250F172D00F08683 /* MarvelResponse.swift in Sources */,
+				E19723A325384A28000DB40C /* GitHubUserViewModel.swift in Sources */,
 				E195A137251CAF4F002605E2 /* QueryUsers.swift in Sources */,
 				E195A127251CAE05002605E2 /* MarvelAPIBase.swift in Sources */,
 				E195A12C251CAEA3002605E2 /* QueryComics.swift in Sources */,

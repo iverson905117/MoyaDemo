@@ -39,11 +39,11 @@ extension MarvelAPI {
         
         // MARK: MockableTargetType
         var stubBehavir: StubBehavior {
-            return .immediate
+            return .never
         }
         
         var isStubSuccess: Bool {
-            return true
+            return false
         }
         
         var successFileName: String {

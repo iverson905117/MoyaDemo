@@ -18,6 +18,6 @@ struct MarvelResponse: BaseResponse {
     var code: Int
     var status: String
     var copyright: String
-    let attributionText: String
-    let attributionHTML: String
+    let attributionText: String?
+    let attributionHTML: String?
 }
