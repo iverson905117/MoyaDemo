@@ -9,8 +9,11 @@
 import Foundation
 
 struct GitHubUserViewModel {
+    var id: Int?
+    var name: String?
     
     init(model: UserResponse) {
-        
+        id = model.id
+        name = model.name
     }
 }

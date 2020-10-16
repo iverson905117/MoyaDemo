@@ -1,7 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-MoyaDemo_mock/Pods-MoyaDemo_mock-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
-${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
-${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
-${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
-${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Moya-iOS13.0/Moya.framework
+${BUILT_PRODUCTS_DIR}/ReachabilitySwift-iOS13.0/Reachability.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa-iOS13.0/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxRelay-iOS13.0/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift-iOS13.0/RxSwift.framework

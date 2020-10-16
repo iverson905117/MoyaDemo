@@ -20,7 +20,7 @@ extension MockAPI {
             return .never
         }
         
-        var isStubSuccess: Bool = true
+        var isStubSuccess: Bool = false
         
         var successFileName: String {
             return "RefreshTokenResponseSuccess"

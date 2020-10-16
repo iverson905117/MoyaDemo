@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserResponse: BaseResponse {
-    var code: Int { return 200 }
+    var code: Int = 200
     var avatarUrl: String?
     var bio: String?
     var blog: String?

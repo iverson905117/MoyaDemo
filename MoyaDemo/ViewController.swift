@@ -14,7 +14,7 @@ var refreshTokenPassFlag = false // (vic) test
 
 class ViewController: UIViewController {
     
-    let connectionService = ConnectionService.shared
+    let connectionService = NetworkService.shared
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -29,10 +29,10 @@ class ViewController: UIViewController {
 //        queryMarvel_MoyaProvider()
 //        queryMarvel_MoyaProvider_rx()
         
-        queryMarvel_CustomProvider()
+//        queryMarvel_CustomProvider()
 //        queryMarvel_CustomProvider_rx()
         
-//        queryGitHubUsers()
+        queryGitHubUsers_CustomProvider_rx()
     }
     
     // MARK: - Mock
@@ -153,7 +153,7 @@ class ViewController: UIViewController {
     
     
     // MARK: - GitHub
-    func queryGitHubUsers() {
+    func queryGitHubUsers_CustomProvider_rx() {
         print(#function)
         connectionService.rxRequestDecoded(GitHubAPI.QueryUsers(user: "iverson905117"))
             .subscribe(onSuccess: { model in

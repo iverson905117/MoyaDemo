@@ -21,6 +21,14 @@ target 'MoyaDemo_mock' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for MoyaDemo
+  # Pods for MoyaDemo_mock
+  sharePods
+end
+
+target 'MoyaDemo_mockTests' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MoyaDemo_mockTests
   sharePods
 end

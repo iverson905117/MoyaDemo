@@ -197,20 +197,20 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Moya-iOS13.0/Moya.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift-iOS13.0/Reachability.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS13.0/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS13.0/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS13.0/RxSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Moya-iOS13.0/Moya.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift-iOS13.0/Reachability.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS13.0/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS13.0/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS13.0/RxSwift.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
