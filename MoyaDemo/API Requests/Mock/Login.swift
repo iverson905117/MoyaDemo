@@ -16,7 +16,7 @@ extension MockAPI {
         
         var parameters: [String : Any]?
         
-        var stubBehavir: StubBehavior {
+        var stubBehavior: StubBehavior {
             return .never
         }
         

@@ -20,7 +20,7 @@ protocol RetryableTargetType {
 }
 
 protocol MockableTargetType {
-    var stubBehavir: StubBehavior { get }
+    var stubBehavior: Moya.StubBehavior { get }
     var isStubSuccess: Bool { get }
     var successFileName: String { get }
     var failureFileName: String { get }

@@ -38,12 +38,12 @@ extension MarvelAPI {
         }
         
         // MARK: MockableTargetType
-        var stubBehavir: StubBehavior {
+        var stubBehavior: StubBehavior {
             return .never
         }
         
         var isStubSuccess: Bool {
-            return false
+            return true
         }
         
         var successFileName: String {
@@ -55,7 +55,7 @@ extension MarvelAPI {
         }
         
         // MARK: RetryableTargetType
-        var retryCount: Int = 5
+        var retryCount: Int = 3
         
         init() {
             let ts = "\(Date().timeIntervalSince1970)"

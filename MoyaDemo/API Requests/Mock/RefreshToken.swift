@@ -16,11 +16,11 @@ extension MockAPI {
         
         var parameters: [String : Any]?
         
-        var stubBehavir: StubBehavior {
+        var stubBehavior: StubBehavior {
             return .never
         }
         
-        var isStubSuccess: Bool = false
+        var isStubSuccess: Bool = true
         
         var successFileName: String {
             return "RefreshTokenResponseSuccess"

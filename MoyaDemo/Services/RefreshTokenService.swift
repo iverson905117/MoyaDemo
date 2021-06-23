@@ -10,9 +10,9 @@ import Foundation
 
 class RefreshTokenService {
     
-    var completions = [(Result<RefreshTokenResponse, Error>) -> Void]()
-    let lock = NSRecursiveLock()
-    let queue = DispatchQueue(label: "com.fet.app.refreshToken", attributes: .concurrent)
+    private var completions = [(Result<RefreshTokenResponse, Error>) -> Void]()
+    private let lock = NSRecursiveLock()
+    private let queue = DispatchQueue(label: "com.fet.app.refreshToken", attributes: .concurrent)
     
     func start(completion: @escaping (Result<RefreshTokenResponse, Error>) -> Void) {
         completions.append(completion)

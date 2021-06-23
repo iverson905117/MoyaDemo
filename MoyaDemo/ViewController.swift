@@ -29,10 +29,10 @@ class ViewController: UIViewController {
 //        queryMarvel_MoyaProvider()
 //        queryMarvel_MoyaProvider_rx()
         
-//        queryMarvel_CustomProvider()
+        queryMarvel_CustomProvider()
 //        queryMarvel_CustomProvider_rx()
         
-        queryGitHubUsers_CustomProvider_rx()
+//        queryGitHubUsers_CustomProvider_rx()
     }
     
     // MARK: - Mock

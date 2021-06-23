@@ -35,7 +35,7 @@ extension GitHubAPI {
         }
         
         // MARK: MockableTargetType
-        var stubBehavir: StubBehavior {
+        var stubBehavior: StubBehavior {
             return .never
         }
         
@@ -52,7 +52,7 @@ extension GitHubAPI {
         }
         
         // MARK: RetryableTargetType
-        var retryCount: Int = 5
+        var retryCount: Int = 3
         
         // MARK: Initializer
         init(user: String) {

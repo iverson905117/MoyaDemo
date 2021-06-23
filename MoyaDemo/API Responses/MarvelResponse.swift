@@ -8,12 +8,6 @@
 
 import Foundation
 
-protocol BaseResponse: Decodable {
-    var code: Int { get }
-//    var status: String { get }
-//    var copyright: String { get }
-}
-
 struct MarvelResponse: BaseResponse {
     var code: Int
     var status: String

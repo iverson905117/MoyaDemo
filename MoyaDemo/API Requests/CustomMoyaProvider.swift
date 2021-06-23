@@ -20,7 +20,14 @@ class CustomMoyaProvider: MoyaProvider<MultiTarget> {
                   session: Session = MoyaProvider<Target>.defaultAlamofireSession(),
                   plugins: [PluginType] = [],
                   trackInflights: Bool = false) {
-        super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, callbackQueue: callbackQueue, session: session, plugins: plugins, trackInflights: trackInflights)
+        
+        super.init(endpointClosure: endpointClosure,
+                   requestClosure: requestClosure,
+                   stubClosure: stubClosure,
+                   callbackQueue: callbackQueue,
+                   session: session,
+                   plugins: plugins,
+                   trackInflights: trackInflights)
     }
 }
 
@@ -31,18 +38,35 @@ extension CustomMoyaProvider {
         let target = MultiTarget(target)
         
         return request(target) { result in
-//            let a = try? result.get()
+//            let _ = try? result.get()
             switch result {
             case .success(let response):
                 do {
-                    let object = try response.filterSuccessfulStatusCodes().map(T.ResponseType.self)
-                    completion(.success(object))
+                    // TODO: Log
+                    print("response description: \(response.description)")
+                    // ckeck status code 2xx and map to object
+                    let value = try response.filterSuccessfulStatusCodes().map(T.ResponseType.self)
+                    completion(.success(value))
+                    return
                 }
-                catch {
-                    completion(.failure(error))
+                catch let error {
+                    // 1. status code not 2xx
+                    // 2. map to object failure
+                    if let error = error as? Moya.MoyaError,
+                       let body = try? error.response?.mapJSON(),
+                       let statusCode = error.response?.statusCode {
+                        print("error response statusCode: \(statusCode)")
+                        print("error response body: \(body)")
+                        completion(.failure(error))
+                        return
+                    } else {
+                        completion(.failure(error))
+                        return
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error))
+                return
             }
         }
     }

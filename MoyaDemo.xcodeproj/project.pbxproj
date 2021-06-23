@@ -25,6 +25,8 @@
 		E114F4AF244824730032A75F /* Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4AE244824730032A75F /* Marvel.swift */; };
 		E114F4B3244829CF0032A75F /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B2244829CF0032A75F /* String+md5.swift */; };
 		E114F4B524482D080032A75F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F4B424482D080032A75F /* NetworkService.swift */; };
+		E16EFF9D2640F01A001B511E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16EFF9C2640F01A001B511E /* BaseResponse.swift */; };
+		E16EFF9E2640F01A001B511E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16EFF9C2640F01A001B511E /* BaseResponse.swift */; };
 		E1751EB7250F172D00F08683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114F49E24481C770032A75F /* ViewController.swift */; };
 		E1751EB8250F172D00F08683 /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2151524485CE700F2CECD /* MarvelAPI.swift */; };
 		E1751EB9250F172D00F08683 /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F215112448338300F2CECD /* MarvelResponse.swift */; };
@@ -131,6 +133,7 @@
 		E114F4AE244824730032A75F /* Marvel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel.swift; sourceTree = "<group>"; };
 		E114F4B2244829CF0032A75F /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		E114F4B424482D080032A75F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E16EFF9C2640F01A001B511E /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		E1751ECA250F172D00F08683 /* MoyaDemo_mock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaDemo_mock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1751ECC250F178A00F08683 /* MarvelResponseFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelResponseFailure.json; sourceTree = "<group>"; };
 		E1751ECD250F178A00F08683 /* MarvelResponseSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarvelResponseSuccess.json; sourceTree = "<group>"; };
@@ -245,9 +248,9 @@
 				E1941D3D2512076B00106881 /* TokenData.swift */,
 				E195A123251CAA01002605E2 /* Services */,
 				E195A122251CA9CB002605E2 /* API Requests */,
-				E195A120251CA95A002605E2 /* Models */,
-				E197239F25384941000DB40C /* ViewModel */,
+				E195A120251CA95A002605E2 /* API Responses */,
 				E197F3342521B041002CC032 /* API Mock */,
+				E197239F25384941000DB40C /* ViewModel */,
 				E195A11F251CA94C002605E2 /* Extensions */,
 			);
 			path = MoyaDemo;
@@ -291,14 +294,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E195A120251CA95A002605E2 /* Models */ = {
+		E195A120251CA95A002605E2 /* API Responses */ = {
 			isa = PBXGroup;
 			children = (
+				E16EFF9C2640F01A001B511E /* BaseResponse.swift */,
 				E1F215112448338300F2CECD /* MarvelResponse.swift */,
 				E195A107251C9F09002605E2 /* GitHubResponse.swift */,
 				E1941D3A2511F97000106881 /* MockResponse.swift */,
 			);
-			path = Models;
+			path = "API Responses";
 			sourceTree = "<group>";
 		};
 		E195A122251CA9CB002605E2 /* API Requests */ = {
@@ -680,6 +684,7 @@
 				716608F7244C163300738ADB /* CustomMoyaProvider.swift in Sources */,
 				E195A108251C9F09002605E2 /* GitHubResponse.swift in Sources */,
 				E195A148251CB00B002605E2 /* RefreshToken.swift in Sources */,
+				E16EFF9D2640F01A001B511E /* BaseResponse.swift in Sources */,
 				E195A13C251CAF8D002605E2 /* MockAPIBase.swift in Sources */,
 				E1941D292510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1100937251B18AD00004025 /* RefreshTokenService.swift in Sources */,
@@ -714,6 +719,7 @@
 				E1751EBA250F172D00F08683 /* CustomMoyaProvider.swift in Sources */,
 				E195A109251C9F09002605E2 /* GitHubResponse.swift in Sources */,
 				E195A149251CB00B002605E2 /* RefreshToken.swift in Sources */,
+				E16EFF9E2640F01A001B511E /* BaseResponse.swift in Sources */,
 				E195A13D251CAF8D002605E2 /* MockAPIBase.swift in Sources */,
 				E1941D2A2510C30500106881 /* MultiTargetType.swift in Sources */,
 				E1100938251B18AD00004025 /* RefreshTokenService.swift in Sources */,
